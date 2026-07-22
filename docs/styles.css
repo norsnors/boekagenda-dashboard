@@ -1,0 +1,136 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --ink: #16181d;
+  --ink-soft: #5b616e;
+  --line: #e3e6ec;
+  --accent: #ff6600;      /* BNR-oranje */
+  --accent-ink: #b23f00;
+  --today: #fff4ec;
+  --today-line: #ffb37a;
+  --green: #1a7f4b;
+  --green-bg: #e6f4ec;
+  --amber: #8a6d00;
+  --amber-bg: #fbf1cf;
+  --blue: #1256a8;
+  --blue-bg: #e6effb;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); line-height: 1.45; }
+
+/* ---------- Topbar ---------- */
+.topbar { background: #16181d; color: #fff; border-bottom: 3px solid var(--accent); }
+.topbar-inner {
+  max-width: 1080px; margin: 0 auto; padding: 18px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark {
+  background: var(--accent); color: #16181d; font-weight: 800; letter-spacing: .5px;
+  padding: 6px 9px; border-radius: 6px; font-size: 18px;
+}
+.brand h1 { margin: 0; font-size: 20px; font-weight: 700; }
+.brand .sub { margin: 2px 0 0; font-size: 13px; color: #b8bdc9; }
+.updated { text-align: right; display: flex; flex-direction: column; }
+.updated-label { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: #b8bdc9; }
+.updated-value { font-size: 15px; font-weight: 600; }
+
+/* ---------- Layout ---------- */
+main { max-width: 1080px; margin: 0 auto; padding: 20px; }
+
+.controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+#search {
+  flex: 1 1 240px; min-width: 0; padding: 10px 14px; font-size: 15px;
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink);
+}
+#search:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.regions { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  padding: 8px 13px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.chip:hover { border-color: #c7ccd6; }
+.chip.active { background: #16181d; color: #fff; border-color: #16181d; }
+
+.legend { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; font-size: 12px; }
+
+/* ---------- Sections ---------- */
+.section { margin-bottom: 26px; }
+.section h2 {
+  font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--ink-soft);
+  margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 8px;
+}
+.section .cnt { color: var(--ink-soft); font-weight: 600; }
+.section.hot h2 { color: var(--accent-ink); border-color: var(--today-line); }
+
+/* ---------- Table (desktop) ---------- */
+.rows { display: grid; gap: 6px; }
+.row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 1fr 0.9fr auto;
+  align-items: center; gap: 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 12px 14px; box-shadow: var(--shadow);
+}
+.section.hot .row { background: var(--today); border-color: var(--today-line); }
+.row .name { font-weight: 700; font-size: 15px; }
+.row .ticker { color: var(--ink-soft); font-size: 12.5px; }
+.row .date { font-weight: 600; }
+.row .date .weekday { color: var(--ink-soft); font-weight: 500; margin-right: 4px; text-transform: capitalize; }
+.row .time { font-variant-numeric: tabular-nums; }
+.row .time.unknown { color: var(--ink-soft); font-style: italic; }
+.row .labels { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+
+.row.expected .name, .row.expected .date { color: var(--ink-soft); font-style: italic; }
+.row.nodate, .row.manual { grid-template-columns: 1.4fr 2fr; opacity: .95; }
+.row.manual { background: #fafafa; border-style: dashed; }
+
+/* ---------- Badges & pills ---------- */
+.badge, .pill { font-size: 11.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.badge-confirmed { background: var(--green-bg); color: var(--green); }
+.badge-expected { background: var(--amber-bg); color: var(--amber); }
+.badge-changed { background: #fde4e4; color: #b42318; }
+.badge-manual { background: #eceef2; color: #5b616e; }
+.pill-nabeurs { background: #eae6fb; color: #5b3fb2; }
+.pill-voorbeurs { background: #e6f4ec; color: var(--green); }
+.pill-handel { background: var(--blue-bg); color: var(--blue); }
+.pill-unknown { background: #eceef2; color: #5b616e; }
+
+.foot { margin-top: 28px; color: var(--ink-soft); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 14px; }
+.empty { color: var(--ink-soft); text-align: center; padding: 30px; }
+
+.col-head {
+  display: grid; grid-template-columns: 1.4fr 0.9fr 1fr 0.9fr auto; gap: 12px;
+  padding: 0 14px 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--ink-soft);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 680px) {
+  .col-head { display: none; }
+  .row, .row.nodate, .row.manual { grid-template-columns: 1fr; gap: 6px; }
+  .row .labels { justify-content: flex-start; }
+  .row .cell-date { display: flex; gap: 10px; align-items: baseline; }
+  .updated { text-align: left; }
+  .topbar-inner { gap: 12px; }
+}
+
+/* ---------- Dark mode ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115; --surface: #191c22; --ink: #eceef2; --ink-soft: #9aa1af;
+    --line: #2a2e37; --today: #2a2016; --today-line: #7a4a1e; --shadow: none;
+    --green-bg: #10331f; --amber-bg: #33290a; --blue-bg: #10233f;
+  }
+  .chip.active, .topbar { background: #000; }
+  .brand-mark { color: #16181d; }
+  .row.manual { background: #14161b; }
+  .badge-changed { background: #3a1414; color: #ff9a92; }
+  .pill-nabeurs { background: #241a3f; color: #b9a6f0; }
+  .pill-unknown, .badge-manual { background: #23262e; color: #9aa1af; }
+}
