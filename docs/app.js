@@ -1,7 +1,7 @@
 "use strict";
 
 const DATA_URL = "./data/agenda.json";
-const state = { companies: [], region: "all", query: "" };
+const state = { companies: [], region: "all", query: "", filtered: [] };
 
 const fmtDate = new Intl.DateTimeFormat("nl-NL", { weekday: "short", day: "numeric", month: "short" });
 const fmtUpdated = new Intl.DateTimeFormat("nl-NL", {
@@ -220,6 +220,8 @@ function render() {
     return true;
   });
 
+  state.filtered = filtered; // bewaard voor de Excel-export (exporteert wat je ziet)
+
   const buckets = {};
   for (const c of filtered) {
     const g = groupFor(c, today, weekEnd);
@@ -398,6 +400,14 @@ async function init() {
   });
 
   setupAddPanel();
+
+  const exportBtn = document.getElementById("export-xlsx");
+  if (exportBtn) {
+    exportBtn.addEventListener("click", () => {
+      const list = state.filtered.length ? state.filtered : state.companies;
+      window.BoekagendaExport.download(list);
+    });
+  }
 
   try {
     const res = await fetch(DATA_URL, { cache: "no-store" });

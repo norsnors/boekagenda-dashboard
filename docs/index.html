@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cijferagenda — BNR redactie</title>
   <meta name="description" content="Wanneer publiceren beursgenoteerde bedrijven hun cijfers? Automatisch bijgewerkte agenda voor de BNR-redactie." />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <header class="topbar">
@@ -35,6 +35,7 @@
         <button class="chip" data-region="ASIA">Azië</button>
       </div>
       <button id="add-toggle" class="btn-add" aria-expanded="false" aria-controls="add-panel">+ Bedrijf toevoegen</button>
+      <button id="export-xlsx" class="btn-add" type="button" title="Download de agenda als Excel-bestand in de opmaak van het teamsheet">⬇ Exporteer naar Excel</button>
     </div>
 
     <section id="add-panel" class="add-panel" hidden aria-label="Bedrijf toevoegen">
@@ -112,6 +113,7 @@
     </footer>
   </main>
 
-  <script src="app.js?v=5"></script>
+  <script src="xlsx-export.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
