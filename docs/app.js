@@ -36,6 +36,90 @@ const SESSION = {
 
 const REGION_LABEL = { NL: "Nederland", EU: "Europa", US: "VS", ASIA: "Azië" };
 
+/* GitHub-repo waarin companies.json staat (voor de 'bedrijf toevoegen'-flow). */
+const REPO = "norsnors/boekagenda-dashboard";
+const COMPANIES_EDIT_URL = `https://github.com/${REPO}/edit/main/scripts/companies.json`;
+
+/* ---------- Landen & vlaggen ----------
+   Vlaggen zijn kleine inline-SVG's (betrouwbaar op Windows, waar flag-emoji als
+   "NL"/"US" tonen). De beurs->land en tickersuffix->land maps spiegelen die in
+   scripts/exchanges.py — houd ze in sync bij het toevoegen van een land. */
+const FLAG = {
+  NL: `<svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#21468b"/><rect width="3" height="1.333" fill="#fff"/><rect width="3" height=".667" fill="#ae1c28"/></svg>`,
+  FR: `<svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#002654"/><rect x="2" width="1" height="2" fill="#ce1126"/></svg>`,
+  BE: `<svg class="flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#000"/><rect x="1" width="1" height="2" fill="#fae042"/><rect x="2" width="1" height="2" fill="#ed2939"/></svg>`,
+  DE: `<svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#ffce00"/><rect width="3" height="1.333" fill="#dd0000"/><rect width="3" height=".667" fill="#000"/></svg>`,
+  IT: `<svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#009246"/><rect x="2" width="1" height="2" fill="#ce2b37"/></svg>`,
+  ES: `<svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg>`,
+  CH: `<svg class="flag flag-sq" viewBox="0 0 32 32"><rect width="32" height="32" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>`,
+  SE: `<svg class="flag" viewBox="0 0 16 10"><rect width="16" height="10" fill="#006aa7"/><rect x="5" width="2" height="10" fill="#fecc00"/><rect y="4" width="16" height="2" fill="#fecc00"/></svg>`,
+  DK: `<svg class="flag" viewBox="0 0 37 28"><rect width="37" height="28" fill="#c8102e"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg>`,
+  NO: `<svg class="flag" viewBox="0 0 22 16"><rect width="22" height="16" fill="#ba0c2f"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205b"/><rect y="7" width="22" height="2" fill="#00205b"/></svg>`,
+  FI: `<svg class="flag" viewBox="0 0 18 11"><rect width="18" height="11" fill="#fff"/><rect x="5" width="3" height="11" fill="#003580"/><rect y="4" width="18" height="3" fill="#003580"/></svg>`,
+  GB: `<svg class="flag" viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#c8102e" stroke-width="4"/><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#c8102e"/><rect y="12" width="60" height="6" fill="#c8102e"/></svg>`,
+  US: `<svg class="flag" viewBox="0 0 39 26"><rect width="39" height="26" fill="#b22234"/><g fill="#fff"><rect y="2" width="39" height="2"/><rect y="6" width="39" height="2"/><rect y="10" width="39" height="2"/><rect y="14" width="39" height="2"/><rect y="18" width="39" height="2"/><rect y="22" width="39" height="2"/></g><rect width="15.6" height="14" fill="#3c3b6e"/><g fill="#fff"><circle cx="3" cy="3" r="1"/><circle cx="8" cy="3" r="1"/><circle cx="13" cy="3" r="1"/><circle cx="5.5" cy="7" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="3" cy="11" r="1"/><circle cx="8" cy="11" r="1"/><circle cx="13" cy="11" r="1"/></g></svg>`,
+  JP: `<svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><circle cx="1.5" cy="1" r=".6" fill="#bc002d"/></svg>`,
+  KR: `<svg class="flag" viewBox="0 0 60 40"><rect width="60" height="40" fill="#fff"/><circle cx="30" cy="20" r="12" fill="#0047a0"/><path d="M18,20 A12,12 0 0,1 42,20 Z" fill="#cd2e3a"/><circle cx="24" cy="20" r="6" fill="#cd2e3a"/><circle cx="36" cy="20" r="6" fill="#0047a0"/></svg>`,
+  TW: `<svg class="flag" viewBox="0 0 60 40"><rect width="60" height="40" fill="#fe0000"/><rect width="30" height="20" fill="#000095"/><circle cx="15" cy="10" r="6" fill="#fff"/><circle cx="15" cy="10" r="4.5" fill="#000095"/><circle cx="15" cy="10" r="2.5" fill="#fff"/></svg>`,
+};
+const FLAG_UNKNOWN = `<svg class="flag flag-unknown" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1,10 h18 M10,1 v18 M10,1 a13,13 0 0 1 0,18 a13,13 0 0 1 0,-18" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>`;
+
+const COUNTRY_NAME = {
+  NL: "Nederland", US: "Verenigde Staten", FR: "Frankrijk", GB: "Verenigd Koninkrijk",
+  DE: "Duitsland", BE: "België", KR: "Zuid-Korea", DK: "Denemarken", JP: "Japan",
+  TW: "Taiwan", IT: "Italië", ES: "Spanje", CH: "Zwitserland", SE: "Zweden",
+  NO: "Noorwegen", FI: "Finland", AT: "Oostenrijk", PT: "Portugal", IE: "Ierland",
+  HK: "Hongkong",
+};
+
+const EXCHANGE_COUNTRY = {
+  "Euronext Amsterdam": "NL", "Euronext Paris": "FR", "Euronext Brussel": "BE",
+  "London Stock Exchange": "GB", "Frankfurt (Xetra)": "DE", "Nasdaq": "US",
+  "NYSE": "US", "Korea Exchange (KRX)": "KR", "Nasdaq Copenhagen": "DK",
+  "Tokyo (TSE)": "JP", "Taiwan (TWSE)": "TW",
+};
+const SUFFIX_COUNTRY = {
+  AS: "NL", PA: "FR", BR: "BE", L: "GB", DE: "DE", KS: "KR", CO: "DK", T: "JP",
+  TW: "TW", MI: "IT", MC: "ES", SW: "CH", ST: "SE", HE: "FI", OL: "NO", VI: "AT",
+  LS: "PT", IR: "IE", HK: "HK",
+};
+const REGION_COUNTRY = { NL: "NL", US: "US" };
+
+/* Landcode voor een bedrijf: veld uit de data, anders afgeleid uit beurs/ticker/regio. */
+function countryOf(c) {
+  if (c.country) return c.country;
+  const exch = (c.exchange || "").trim();
+  if (EXCHANGE_COUNTRY[exch]) return EXCHANGE_COUNTRY[exch];
+  const ticker = c.yahoo_ticker || c.ticker || "";
+  if (ticker.includes(".")) {
+    const suffix = ticker.split(".").pop().toUpperCase();
+    if (SUFFIX_COUNTRY[suffix]) return SUFFIX_COUNTRY[suffix];
+  } else if (ticker) {
+    return "US";
+  }
+  return REGION_COUNTRY[c.region] || null;
+}
+
+function countryCell(c) {
+  const code = countryOf(c);
+  const flag = (code && FLAG[code]) || FLAG_UNKNOWN;
+  const name = (code && COUNTRY_NAME[code]) || REGION_LABEL[c.region] || "—";
+  return `<span class="country">${flag}<span class="country-name">${escapeHtml(name)}</span></span>`;
+}
+
+/* Bron-URL voor verificatie: veld uit de data, anders de Yahoo-pagina van de ticker. */
+function sourceOf(c) {
+  if (c.source_url) return c.source_url;
+  const ticker = c.yahoo_ticker || c.ticker;
+  return ticker ? `https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}` : null;
+}
+
+function sourceLink(c) {
+  const url = sourceOf(c);
+  if (!url) return "";
+  return ` · <a class="src" href="${escapeHtml(url)}" target="_blank" rel="noopener" title="Verifieer de datum op Yahoo Finance">bron ↗</a>`;
+}
+
 function groupFor(c, today, weekEnd) {
   if (c.manual) return "manual";
   if (!c.next_date) return "nodate";
@@ -95,26 +179,27 @@ function rowHtml(c) {
   const cls = ["row"];
   if (c.status === "verwacht") cls.push("expected");
   const ticker = c.yahoo_ticker ? `${escapeHtml(c.yahoo_ticker)} · ${escapeHtml(c.exchange)}` : escapeHtml(c.exchange);
+  const identity = `${ticker}${sourceLink(c)}`;
 
   if (c.manual) {
     return `<div class="row manual">
-      <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${escapeHtml(c.exchange)}</div></div>
+      <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${escapeHtml(c.exchange)}${sourceLink(c)}</div></div>
       <div class="labels-inline">${escapeHtml(c.note || "Geen automatische bron beschikbaar.")}
         <div class="labels" style="margin-top:6px">${labelsCell(c)}</div></div>
     </div>`;
   }
   if (!c.next_date) {
     return `<div class="row nodate">
-      <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${ticker}</div></div>
+      <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${identity}</div></div>
       <div class="time unknown">Nog geen datum bekend bij de bron</div>
     </div>`;
   }
   const d = parseDate(c.next_date);
   return `<div class="${cls.join(" ")}">
-    <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${ticker}</div></div>
+    <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${identity}</div></div>
     <div class="cell-date"><span class="date"><span class="weekday">${fmtDate.format(d)}</span></span></div>
     <div>${timeCell(c)}</div>
-    <div class="region">${REGION_LABEL[c.region] || ""}</div>
+    <div class="region">${countryCell(c)}</div>
     <div class="labels">${labelsCell(c)}</div>
   </div>`;
 }
@@ -144,7 +229,7 @@ function render() {
     const showHead = !["nodate", "manual"].includes(g.key);
     parts.push(`<section class="section ${g.hot ? "hot" : ""}">
       <h2>${g.title} <span class="cnt">${items.length}</span></h2>
-      ${showHead ? `<div class="col-head"><div>Bedrijf</div><div>Datum</div><div>Tijd (Ams.)</div><div>Regio</div><div style="text-align:right">Sessie / status</div></div>` : ""}
+      ${showHead ? `<div class="col-head"><div>Bedrijf</div><div>Datum</div><div>Tijd (Ams.)</div><div>Land</div><div style="text-align:right">Sessie / status</div></div>` : ""}
       <div class="rows">${items.map(rowHtml).join("")}</div>
     </section>`);
   }
@@ -153,6 +238,95 @@ function render() {
   document.getElementById("empty").hidden = filtered.length > 0;
   document.getElementById("count").textContent =
     `${state.companies.length} bedrijven in de lijst.`;
+}
+
+/* ---------- Bedrijf toevoegen ---------- */
+const COUNTRY_REGION = {
+  NL: "NL", US: "US",
+  GB: "EU", FR: "EU", DE: "EU", BE: "EU", DK: "EU", IT: "EU", ES: "EU",
+  CH: "EU", SE: "EU", NO: "EU", FI: "EU", AT: "EU", PT: "EU", IE: "EU",
+  KR: "ASIA", JP: "ASIA", TW: "ASIA", HK: "ASIA",
+};
+
+/* Eén companies.json-regel in de huisstijl van het bestand. */
+function jsonLine(obj) {
+  const inner = Object.entries(obj)
+    .map(([k, v]) => `${JSON.stringify(k)}: ${JSON.stringify(v)}`)
+    .join(", ");
+  return `    { ${inner} },`;
+}
+
+function setupAddPanel() {
+  const panel = document.getElementById("add-panel");
+  const toggle = document.getElementById("add-toggle");
+  if (!panel || !toggle) return;
+
+  const els = {
+    name: document.getElementById("f-name"),
+    ticker: document.getElementById("f-ticker"),
+    exchange: document.getElementById("f-exchange"),
+    region: document.getElementById("f-region"),
+    snippet: document.getElementById("f-snippet"),
+    preview: document.getElementById("add-preview"),
+    country: document.getElementById("preview-country"),
+    copy: document.getElementById("f-copy"),
+    github: document.getElementById("f-github"),
+  };
+
+  // Beurs-suggesties uit de bekende beurzen.
+  const dl = document.getElementById("exchange-list");
+  if (dl) dl.innerHTML = Object.keys(EXCHANGE_COUNTRY)
+    .map((x) => `<option value="${escapeHtml(x)}"></option>`).join("");
+
+  els.github.href = COMPANIES_EDIT_URL;
+  let regionTouched = false; // zodra de redacteur zelf een regio kiest, niet meer overschrijven
+
+  toggle.addEventListener("click", () => {
+    const open = panel.hidden;
+    panel.hidden = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+    if (open) els.name.focus();
+  });
+
+  function update() {
+    const name = els.name.value.trim();
+    const ticker = els.ticker.value.trim();
+    const exchange = els.exchange.value.trim();
+
+    const code = countryOf({ exchange, yahoo_ticker: ticker, region: els.region.value });
+    // Regio automatisch meelaten bewegen met het herkende land, tenzij handmatig gezet.
+    if (!regionTouched && code && COUNTRY_REGION[code]) els.region.value = COUNTRY_REGION[code];
+    const region = els.region.value;
+
+    if (!name) { els.preview.hidden = true; return; }
+    els.preview.hidden = false;
+
+    const flag = (code && FLAG[code]) || FLAG_UNKNOWN;
+    const cname = (code && COUNTRY_NAME[code]) || "onbekend — controleer beurs/ticker";
+    els.country.innerHTML = `${flag}<span>${escapeHtml(cname)}</span>`;
+
+    const obj = ticker
+      ? { name, ticker, exchange, region }
+      : { name, ticker: null, exchange: exchange || "n.v.t.", region,
+          manual: true, note: "Handmatig toegevoegd — geen automatische bron." };
+    els.snippet.value = jsonLine(obj);
+  }
+
+  [els.name, els.ticker, els.exchange].forEach((el) => el.addEventListener("input", update));
+  els.exchange.addEventListener("change", update);
+  els.region.addEventListener("change", () => { regionTouched = true; update(); });
+
+  els.copy.addEventListener("click", async () => {
+    els.snippet.select();
+    try {
+      await navigator.clipboard.writeText(els.snippet.value);
+    } catch {
+      document.execCommand("copy");
+    }
+    const orig = els.copy.textContent;
+    els.copy.textContent = "Gekopieerd ✓";
+    setTimeout(() => { els.copy.textContent = orig; }, 1500);
+  });
 }
 
 async function init() {
@@ -166,6 +340,8 @@ async function init() {
     state.region = btn.dataset.region;
     render();
   });
+
+  setupAddPanel();
 
   try {
     const res = await fetch(DATA_URL, { cache: "no-store" });

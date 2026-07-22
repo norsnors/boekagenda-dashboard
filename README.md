@@ -64,12 +64,24 @@ toe of haal het weg:
 { "name": "Bedrijfsnaam", "ticker": "XXXX.AS", "exchange": "Euronext Amsterdam", "region": "NL" }
 ```
 
+> **Sneller via het dashboard.** Op het dashboard staat rechtsboven de knop
+> **“+ Bedrijf toevoegen”**. Vul naam, Yahoo-ticker, beurs en regio in; je krijgt de kant-en-klare
+> JSON-regel (het herkende land toont het tijdens het typen) plus een knop die
+> `scripts/companies.json` direct in de GitHub-editor opent. Plak de regel in de `"companies"`-lijst
+> en commit. De redactie hoeft dus geen bestanden lokaal te bewerken.
+
 - **`ticker`** — de **Yahoo Finance**-ticker, mét beurssuffix. Veelgebruikte suffixen:
   `.AS` Amsterdam · `.BR` Brussel · `.PA` Parijs · `.DE` Xetra · `.L` Londen ·
   `.CO` Kopenhagen · `.KS` Korea · `.T` Tokio · `.TW` Taiwan · (geen suffix) VS.
   **Controleer de ticker** door 'm op [finance.yahoo.com](https://finance.yahoo.com) op te zoeken —
   naam-matching is foutgevoelig (spin-offs, dubbele noteringen).
 - **`region`** — `NL` | `EU` | `US` | `ASIA` (bepaalt het regiofilter en of voor-/nabeurs wordt afgeleid).
+- **Land & vlag** worden **automatisch** afgeleid uit de beurs (anders de tickersuffix), dus die
+  hoef je niet in te vullen. De mapping staat in [`scripts/exchanges.py`](scripts/exchanges.py)
+  (`EXCHANGE_COUNTRY` / `SUFFIX_COUNTRY`) en wordt gespiegeld in [`docs/app.js`](docs/app.js);
+  voeg je een nieuw land toe, dan zet je daar de landcode + vlag-SVG bij.
+- **Bronvermelding:** elk automatisch bedrijf krijgt op het dashboard een **“bron ↗”**-link naar
+  zijn Yahoo Finance-pagina, zodat de redactie de datum kan verifiëren.
 - **Geen automatische bron?** (niet los genoteerd, bv. ASN Bank) zet dan:
   ```json
   { "name": "ASN Bank", "ticker": null, "exchange": "n.v.t.", "region": "NL", "manual": true,
@@ -91,7 +103,7 @@ Bij de volgende (dagelijkse of handmatige) run verschijnt de wijziging vanzelf i
 - Kan ook **handmatig** worden gestart via de **Actions**-tab → *Cijferagenda bijwerken* → *Run workflow*.
 - Stappen: code uitchecken → Python installeren → `pip install -r requirements.txt` →
   `python scripts/fetch_agenda.py` → gewijzigde `docs/data/*.json` committen en pushen.
-- **Changelog:** joez datumverschuiving wordt gelogd in
+- **Changelog:** elke datumverschuiving wordt gelogd in
   [`docs/data/changelog.json`](docs/data/changelog.json) én is zichtbaar in de git-commithistorie.
   Op het dashboard krijgt een verschoven datum het label **"gewijzigd"** met de oude datum in de tooltip.
 

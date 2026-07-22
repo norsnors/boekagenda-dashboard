@@ -102,6 +102,60 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
 .pill-handel { background: var(--blue-bg); color: var(--blue); }
 .pill-unknown { background: #eceef2; color: #5b616e; }
 
+/* ---------- Land & vlag ---------- */
+.country { display: inline-flex; align-items: center; gap: 8px; }
+.flag {
+  width: 22px; height: 15px; flex: 0 0 auto; border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(16,24,40,.15); display: inline-block; vertical-align: middle;
+}
+.flag-sq { width: 15px; }
+.flag-unknown { box-shadow: none; color: var(--ink-soft); }
+.country-name { font-size: 13.5px; }
+
+/* ---------- Bronlink ---------- */
+.ticker .src { color: var(--accent-ink); text-decoration: none; font-weight: 600; white-space: nowrap; }
+.ticker .src:hover { text-decoration: underline; }
+
+/* ---------- Bedrijf toevoegen ---------- */
+.btn-add {
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  padding: 8px 14px; border-radius: var(--radius); font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.btn-add:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+.add-panel {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 16px 18px; margin-bottom: 18px; box-shadow: var(--shadow);
+}
+.add-intro { margin: 0 0 14px; font-size: 13.5px; color: var(--ink-soft); }
+.add-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 16px; }
+.add-grid label { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+.add-grid input, .add-grid select {
+  padding: 9px 11px; font-size: 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--bg); color: var(--ink); font-weight: 400;
+}
+.add-grid input:focus, .add-grid select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.add-grid .hint { font-weight: 400; font-size: 11.5px; color: var(--ink-soft); }
+.add-grid .hint a { color: var(--accent-ink); }
+
+.add-preview { margin-top: 16px; border-top: 1px dashed var(--line); padding-top: 14px; }
+.add-preview-head { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+.preview-country { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; color: var(--ink); }
+.snippet-label { display: block; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+#f-snippet {
+  width: 100%; margin-top: 6px; padding: 10px 12px; font-size: 12.5px; resize: vertical;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink);
+}
+.add-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.btn-github {
+  display: inline-flex; align-items: center; background: #16181d; color: #fff; text-decoration: none;
+  padding: 8px 14px; border-radius: var(--radius); font-size: 13px; font-weight: 600;
+}
+.btn-github:hover { background: #000; }
+.add-steps { margin: 12px 0 0; font-size: 12.5px; color: var(--ink-soft); }
+.add-panel code { background: var(--bg); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+
 .foot { margin-top: 28px; color: var(--ink-soft); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 14px; }
 .empty { color: var(--ink-soft); text-align: center; padding: 30px; }
 
@@ -118,6 +172,8 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
   .row .cell-date { display: flex; gap: 10px; align-items: baseline; }
   .updated { text-align: left; }
   .topbar-inner { gap: 12px; }
+  .add-grid { grid-template-columns: 1fr; }
+  .btn-add { width: 100%; }
 }
 
 /* ---------- Dark mode ---------- */
@@ -133,4 +189,8 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
   .badge-changed { background: #3a1414; color: #ff9a92; }
   .pill-nabeurs { background: #241a3f; color: #b9a6f0; }
   .pill-unknown, .badge-manual { background: #23262e; color: #9aa1af; }
+  .flag { box-shadow: 0 0 0 1px rgba(255,255,255,.18); }
+  .ticker .src { color: #ff9a52; }
+  .btn-github { background: #23262e; }
+  .btn-github:hover { background: #2f333d; }
 }

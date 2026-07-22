@@ -21,7 +21,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import yfinance as yf
 
-from exchanges import us_session, TRUSTED_INTRADAY_REGIONS
+from exchanges import us_session, TRUSTED_INTRADAY_REGIONS, country_for, yahoo_url
 
 warnings.filterwarnings("ignore")
 
@@ -152,6 +152,8 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
         "yahoo_ticker": company.get("ticker"),
         "exchange": company.get("exchange", ""),
         "region": company.get("region", ""),
+        "country": country_for(company),
+        "source_url": yahoo_url(company.get("ticker")),
         "next_date": None,
         "next_datetime_ams": None,
         "time_known": False,

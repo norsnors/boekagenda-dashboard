@@ -34,7 +34,47 @@
         <button class="chip" data-region="US">VS</button>
         <button class="chip" data-region="ASIA">Azië</button>
       </div>
+      <button id="add-toggle" class="btn-add" aria-expanded="false" aria-controls="add-panel">+ Bedrijf toevoegen</button>
     </div>
+
+    <section id="add-panel" class="add-panel" hidden aria-label="Bedrijf toevoegen">
+      <p class="add-intro">Vul de gegevens in. Je krijgt een kant-en-klare regel plus een link om <code>companies.json</code> op GitHub te openen. Na de eerstvolgende dagelijkse update verschijnt de publicatiedatum vanzelf.</p>
+      <div class="add-grid">
+        <label>Bedrijfsnaam
+          <input type="text" id="f-name" placeholder="bijv. Coca-Cola" autocomplete="off" />
+        </label>
+        <label>Yahoo Finance-ticker
+          <input type="text" id="f-ticker" placeholder="bijv. KO, ASML.AS, 7974.T" autocomplete="off" list="ticker-hint" />
+          <span class="hint">Zoek de ticker op <a href="https://finance.yahoo.com/lookup" target="_blank" rel="noopener">finance.yahoo.com</a>. Leeg laten als het bedrijf niet los beursgenoteerd is.</span>
+        </label>
+        <label>Beurs
+          <input type="text" id="f-exchange" placeholder="bijv. Nasdaq" autocomplete="off" list="exchange-list" />
+        </label>
+        <label>Regio (voor het regiofilter)
+          <select id="f-region">
+            <option value="NL">Nederland</option>
+            <option value="EU">Europa</option>
+            <option value="US">VS</option>
+            <option value="ASIA">Azië</option>
+          </select>
+        </label>
+      </div>
+      <datalist id="exchange-list"></datalist>
+      <div class="add-preview" id="add-preview" hidden>
+        <div class="add-preview-head">
+          <span>Land herkend als:</span>
+          <span id="preview-country" class="preview-country"></span>
+        </div>
+        <label class="snippet-label">Deze regel toevoegen aan de <code>"companies"</code>-lijst:
+          <textarea id="f-snippet" rows="2" readonly spellcheck="false"></textarea>
+        </label>
+        <div class="add-actions">
+          <button id="f-copy" class="btn-add">Kopieer regel</button>
+          <a id="f-github" class="btn-github" href="#" target="_blank" rel="noopener">Open companies.json op GitHub ↗</a>
+        </div>
+        <p class="add-steps">Op GitHub: plak de regel binnen de <code>"companies": [ … ]</code>-lijst (bijv. onderaan, vóór de <code>]</code>), zet er een komma tussen, en klik <em>Commit changes</em>.</p>
+      </div>
+    </section>
 
     <div class="legend">
       <span class="badge badge-confirmed">bevestigd</span>
@@ -51,6 +91,7 @@
     <footer class="foot">
       <p>Bron: Yahoo Finance (via yfinance), dagelijks automatisch ververst. Tijden in Amsterdamse tijd.
       Voor niet-Amerikaanse noteringen levert de bron geen betrouwbaar tijdstip; daar tonen we alleen de datum.
+      Klik op <strong>bron ↗</strong> bij een bedrijf om de datum te verifiëren op de Yahoo Finance-pagina.
       <span id="count"></span></p>
     </footer>
   </main>

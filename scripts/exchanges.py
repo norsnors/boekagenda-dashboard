@@ -44,3 +44,58 @@ def us_session(et_dt):
     if t >= hours["close"]:
         return "nabeurs"
     return "tijdens handel"
+
+
+# ---------------------------------------------------------------------------
+# Land-afleiding (voor de vlaggetjes in het dashboard).
+#
+# Deze twee maps worden gespiegeld in docs/app.js (COUNTRY + suffix-map). Houd
+# ze in sync als je een beurs/land toevoegt. Beurs-naam is de eerste keus;
+# valt die niet te matchen, dan de Yahoo-tickersuffix; anders de regio.
+# ---------------------------------------------------------------------------
+EXCHANGE_COUNTRY = {
+    "Euronext Amsterdam": "NL",
+    "Euronext Paris": "FR",
+    "Euronext Brussel": "BE",
+    "London Stock Exchange": "GB",
+    "Frankfurt (Xetra)": "DE",
+    "Nasdaq": "US",
+    "NYSE": "US",
+    "Korea Exchange (KRX)": "KR",
+    "Nasdaq Copenhagen": "DK",
+    "Tokyo (TSE)": "JP",
+    "Taiwan (TWSE)": "TW",
+}
+
+# Yahoo-tickersuffix -> ISO-landcode (fallback als de beurs onbekend is).
+SUFFIX_COUNTRY = {
+    "AS": "NL", "PA": "FR", "BR": "BE", "L": "GB", "DE": "DE",
+    "KS": "KR", "CO": "DK", "T": "JP", "TW": "TW", "MI": "IT",
+    "MC": "ES", "SW": "CH", "ST": "SE", "HE": "FI", "OL": "NO",
+    "VI": "AT", "LS": "PT", "IR": "IE", "HK": "HK",
+}
+
+# Regio -> representatieve landcode als laatste redmiddel.
+REGION_COUNTRY = {"NL": "NL", "US": "US"}
+
+
+def country_for(company: dict) -> str | None:
+    """Leid de ISO-2 landcode af uit beurs, ticker of regio."""
+    exch = (company.get("exchange") or "").strip()
+    if exch in EXCHANGE_COUNTRY:
+        return EXCHANGE_COUNTRY[exch]
+    ticker = company.get("ticker") or ""
+    if "." in ticker:
+        suffix = ticker.rsplit(".", 1)[1].upper()
+        if suffix in SUFFIX_COUNTRY:
+            return SUFFIX_COUNTRY[suffix]
+    elif ticker:  # geen suffix = Amerikaanse notering bij Yahoo
+        return "US"
+    return REGION_COUNTRY.get(company.get("region", ""))
+
+
+def yahoo_url(ticker: str | None) -> str | None:
+    """Publieke Yahoo Finance-pagina van een ticker (voor bronverificatie)."""
+    if not ticker:
+        return None
+    return f"https://finance.yahoo.com/quote/{ticker}"
