@@ -1,0 +1,308 @@
+[
+  {
+    "run_date": "2026-07-22",
+    "name": "AkzoNobel",
+    "from": null,
+    "to": "2026-07-22"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Alphabet",
+    "from": null,
+    "to": "2026-07-22"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "KPN",
+    "from": null,
+    "to": "2026-07-22"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Randstad",
+    "from": null,
+    "to": "2026-07-22"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Tesla",
+    "from": null,
+    "to": "2026-07-22"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Aalberts",
+    "from": null,
+    "to": "2026-07-23"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Besi (BE Semiconductor)",
+    "from": null,
+    "to": "2026-07-23"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Intel",
+    "from": null,
+    "to": "2026-07-23"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Relx",
+    "from": null,
+    "to": "2026-07-23"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Heijmans",
+    "from": null,
+    "to": "2026-07-24"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Volkswagen",
+    "from": null,
+    "to": "2026-07-24"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "ASM International",
+    "from": null,
+    "to": "2026-07-28"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Philips",
+    "from": null,
+    "to": "2026-07-28"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "SK Hynix",
+    "from": null,
+    "to": "2026-07-28"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Unilever",
+    "from": null,
+    "to": "2026-07-28"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "IMCD",
+    "from": null,
+    "to": "2026-07-29"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Meta",
+    "from": null,
+    "to": "2026-07-29"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Microsoft",
+    "from": null,
+    "to": "2026-07-29"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Samsung",
+    "from": null,
+    "to": "2026-07-29"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Air France-KLM",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Amazon",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Apple",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "ArcelorMittal",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "BAM (Koninklijke BAM Groep)",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "CVC Capital",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "DSM Firmenich",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "ING",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Pharming",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Shell",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "UMG (Universal Music Group)",
+    "from": null,
+    "to": "2026-07-30"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "WDP",
+    "from": null,
+    "to": "2026-07-31"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Ahold Delhaize",
+    "from": null,
+    "to": "2026-08-05"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Heineken",
+    "from": null,
+    "to": "2026-08-05"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Novo Nordisk",
+    "from": null,
+    "to": "2026-08-05"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Wolters Kluwer",
+    "from": null,
+    "to": "2026-08-05"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Magnum Ice Cream Company",
+    "from": null,
+    "to": "2026-08-06"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "NN Group",
+    "from": null,
+    "to": "2026-08-06"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Nintendo",
+    "from": null,
+    "to": "2026-08-06"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "SBM Offshore",
+    "from": null,
+    "to": "2026-08-06"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "ABN Amro",
+    "from": null,
+    "to": "2026-08-12"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Adyen",
+    "from": null,
+    "to": "2026-08-13"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Fastned",
+    "from": null,
+    "to": "2026-08-13"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Foxconn (Hon Hai Precision)",
+    "from": null,
+    "to": "2026-08-13"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "ASR Nederland",
+    "from": null,
+    "to": "2026-08-19"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Aegon",
+    "from": null,
+    "to": "2026-08-20"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Nvidia",
+    "from": null,
+    "to": "2026-08-26"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "InPost",
+    "from": null,
+    "to": "2026-08-31"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Exor",
+    "from": null,
+    "to": "2026-09-22"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "ASML",
+    "from": null,
+    "to": "2026-10-14"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Ubisoft",
+    "from": null,
+    "to": "2026-11-19"
+  },
+  {
+    "run_date": "2026-07-22",
+    "name": "Prosus",
+    "from": null,
+    "to": "2026-11-25"
+  }
+]
