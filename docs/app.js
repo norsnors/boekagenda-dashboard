@@ -43,7 +43,7 @@ const COMPANIES_EDIT_URL = `https://github.com/${REPO}/edit/main/scripts/compani
 /* Cloudflare Worker die een bedrijf automatisch toevoegt (zie worker/README.md).
    Zolang deze leeg is, valt het formulier terug op de handmatige GitHub-methode.
    Vul hier de Worker-URL in (bv. "https://boekagenda-add.<subdomein>.workers.dev"). */
-const ADD_WORKER_URL = "";
+const ADD_WORKER_URL = "https://boekagenda-add.daanmol-1.workers.dev";
 
 /* ---------- Landen & vlaggen ----------
    Vlaggen zijn kleine inline-SVG's (betrouwbaar op Windows, waar flag-emoji als
