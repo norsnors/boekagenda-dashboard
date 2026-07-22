@@ -401,11 +401,14 @@ async function init() {
 
   setupAddPanel();
 
-  const exportBtn = document.getElementById("export-xlsx");
-  if (exportBtn) {
-    exportBtn.addEventListener("click", () => {
+  const copyBtn = document.getElementById("copy-xlsx");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
       const list = state.filtered.length ? state.filtered : state.companies;
-      window.BoekagendaExport.download(list);
+      const orig = copyBtn.textContent;
+      const ok = await window.BoekagendaExport.copy(list);
+      copyBtn.textContent = ok ? "Gekopieerd ✓ — plak in Excel" : "Kopiëren mislukt";
+      setTimeout(() => { copyBtn.textContent = orig; }, 2500);
     });
   }
 

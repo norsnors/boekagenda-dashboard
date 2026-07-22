@@ -93,11 +93,46 @@
     return 5;
   }
 
+  /* Beurs-regio -> CSS-vulkleur (dezelfde tinten als het teamsheet). */
+  function colorHex(region) {
+    if (region === "NL") return "#FFC000";
+    if (region === "US") return "#00B0F0";
+    return "#92D050";
+  }
+
   /* Bedrijfsnaam met sessie-suffix zoals de redactie het noteert. */
   function nameWithSession(c) {
     if (c.session === "voorbeurs") return c.name + " (voorbeurs)";
     if (c.session === "nabeurs") return c.name + " (nabeurs)";
     return c.name;
+  }
+
+  const pad2 = (n) => String(n).padStart(2, "0");
+  function fmtDMY(dateStr) {
+    const [y, m, d] = dateStr.split("-");
+    return `${pad2(+d)}-${pad2(+m)}-${y}`;
+  }
+
+  /* Geordende rijen: gesorteerd op datum, lege scheidingsregel tussen datumgroepen,
+     bedrijven zonder datum onderaan. Gedeeld door de klembord-builders. */
+  function orderedRows(companies) {
+    const dated = companies
+      .filter((c) => !c.manual && c.next_date)
+      .sort((a, b) => (a.next_date < b.next_date ? -1 : a.next_date > b.next_date ? 1 : a.name.localeCompare(b.name)));
+    const undated = companies.filter((c) => !c.manual && !c.next_date);
+    const rows = [];
+    let prev = null;
+    for (const c of dated) {
+      if (prev !== null && c.next_date !== prev) rows.push({ blank: true });
+      rows.push({ date: fmtDMY(c.next_date), name: nameWithSession(c), color: colorHex(c.region) });
+      prev = c.next_date;
+    }
+    if (undated.length) {
+      rows.push({ blank: true });
+      rows.push({ label: "Datum nog niet bekend:" });
+      for (const c of undated) rows.push({ date: "", name: nameWithSession(c), color: colorHex(c.region) });
+    }
+    return rows;
   }
 
   const HEADERS = [
@@ -238,6 +273,64 @@
 </worksheet>`;
   }
 
+  /* ---------- Klembord (plak-klaar in Excel/SharePoint) ---------- */
+  /* HTML-tabel met celkleuren: Excel (ook Excel Online) neemt achtergrondkleuren
+     bij plakken over. Alleen kolom A (datum) + B (bedrijf) worden gevuld; de
+     overige redactiekolommen blijven leeg. */
+  function buildClipboardHtml(companies) {
+    const th = (t) => `<td style="font-weight:bold;border:1px solid #ccc">${xesc(t)}</td>`;
+    const header = `<tr>${HEADERS.map(th).join("")}</tr>`;
+    const body = orderedRows(companies).map((r) => {
+      if (r.blank) return `<tr><td></td><td></td></tr>`;
+      if (r.label) return `<tr><td>${xesc(r.label)}</td><td></td></tr>`;
+      return `<tr><td style="mso-number-format:'dd\\-mm\\-yyyy'">${xesc(r.date)}</td>` +
+        `<td style="background-color:${r.color}">${xesc(r.name)}</td></tr>`;
+    }).join("");
+    return `<meta charset="utf-8"><table>${header}${body}</table>`;
+  }
+
+  /* Platte-tekst-variant (tab-gescheiden) als terugval en voor 'plakken zonder opmaak'. */
+  function buildClipboardText(companies) {
+    const lines = [HEADERS.join("\t")];
+    for (const r of orderedRows(companies)) {
+      if (r.blank) lines.push("");
+      else if (r.label) lines.push(r.label);
+      else lines.push(`${r.date}\t${r.name}`);
+    }
+    return lines.join("\n");
+  }
+
+  async function copyAgendaToClipboard(companies) {
+    const html = buildClipboardHtml(companies || []);
+    const text = buildClipboardText(companies || []);
+    // Voorkeur: async Clipboard API met zowel HTML (kleuren) als platte tekst.
+    if (navigator.clipboard && window.ClipboardItem) {
+      try {
+        await navigator.clipboard.write([new window.ClipboardItem({
+          "text/html": new Blob([html], { type: "text/html" }),
+          "text/plain": new Blob([text], { type: "text/plain" }),
+        })]);
+        return true;
+      } catch (e) { /* val terug op execCommand */ }
+    }
+    // Terugval: selecteer een tijdelijke opgemaakte div en kopieer via execCommand.
+    const div = document.createElement("div");
+    div.setAttribute("contenteditable", "true");
+    div.style.cssText = "position:fixed;left:-9999px;top:0;white-space:pre;";
+    div.innerHTML = html;
+    document.body.appendChild(div);
+    const sel = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(div);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    div.remove();
+    return ok;
+  }
+
   /* ---------- Publieke API ---------- */
   function buildAgendaXlsx(companies, sheetName) {
     const enc = new TextEncoder();
@@ -272,5 +365,10 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
-  window.BoekagendaExport = { build: buildAgendaXlsx, download: downloadAgendaXlsx };
+  window.BoekagendaExport = {
+    build: buildAgendaXlsx,
+    download: downloadAgendaXlsx,
+    copy: copyAgendaToClipboard,
+    clipboardHtml: buildClipboardHtml,
+  };
 })();
