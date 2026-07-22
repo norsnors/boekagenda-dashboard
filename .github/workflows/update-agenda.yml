@@ -1,0 +1,47 @@
+name: Cijferagenda bijwerken
+
+on:
+  schedule:
+    # GitHub cron draait in UTC. 04:00 en 05:00 UTC dekken samen 06:00 Amsterdamse
+    # tijd in zowel zomer- (CEST) als wintertijd (CET). Runs zijn idempotent.
+    - cron: "0 4 * * 1-5"
+    - cron: "0 5 * * 1-5"
+  workflow_dispatch: {}   # handmatig starten via de Actions-tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-agenda
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch agenda
+        run: python scripts/fetch_agenda.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/agenda.json docs/data/changelog.json
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen in de agenda."
+          else
+            git commit -m "chore: cijferagenda bijgewerkt ($(date -u +%Y-%m-%d))"
+            git push
+          fi
