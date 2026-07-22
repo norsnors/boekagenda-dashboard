@@ -73,7 +73,9 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
 .rows { display: grid; gap: 6px; }
 .row {
   display: grid;
-  grid-template-columns: 1.4fr 0.9fr 1fr 0.9fr auto;
+  /* Vaste minmax(0,…fr)-kolommen (géén 'auto'): zo zijn de kolombreedtes
+     contentonafhankelijk en lijnen alle rijen + de koprij exact uit. */
+  grid-template-columns: minmax(0,1.7fr) minmax(0,0.85fr) minmax(0,0.8fr) minmax(0,1.1fr) minmax(0,1.25fr);
   align-items: center; gap: 12px;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 12px 14px; box-shadow: var(--shadow);
@@ -160,7 +162,9 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
 .empty { color: var(--ink-soft); text-align: center; padding: 30px; }
 
 .col-head {
-  display: grid; grid-template-columns: 1.4fr 0.9fr 1fr 0.9fr auto; gap: 12px;
+  display: grid;
+  grid-template-columns: minmax(0,1.7fr) minmax(0,0.85fr) minmax(0,0.8fr) minmax(0,1.1fr) minmax(0,1.25fr);
+  gap: 12px;
   padding: 0 14px 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--ink-soft);
 }
 
