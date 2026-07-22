@@ -40,6 +40,11 @@ const REGION_LABEL = { NL: "Nederland", EU: "Europa", US: "VS", ASIA: "Azië" };
 const REPO = "norsnors/boekagenda-dashboard";
 const COMPANIES_EDIT_URL = `https://github.com/${REPO}/edit/main/scripts/companies.json`;
 
+/* Cloudflare Worker die een bedrijf automatisch toevoegt (zie worker/README.md).
+   Zolang deze leeg is, valt het formulier terug op de handmatige GitHub-methode.
+   Vul hier de Worker-URL in (bv. "https://boekagenda-add.<subdomein>.workers.dev"). */
+const ADD_WORKER_URL = "";
+
 /* ---------- Landen & vlaggen ----------
    Vlaggen zijn kleine inline-SVG's (betrouwbaar op Windows, waar flag-emoji als
    "NL"/"US" tonen). De beurs->land en tickersuffix->land maps spiegelen die in
@@ -261,24 +266,31 @@ function setupAddPanel() {
   const toggle = document.getElementById("add-toggle");
   if (!panel || !toggle) return;
 
+  const auto = !!ADD_WORKER_URL; // Worker ingesteld => automatisch toevoegen, anders GitHub-terugval
+  const $ = (id) => document.getElementById(id);
   const els = {
-    name: document.getElementById("f-name"),
-    ticker: document.getElementById("f-ticker"),
-    exchange: document.getElementById("f-exchange"),
-    region: document.getElementById("f-region"),
-    snippet: document.getElementById("f-snippet"),
-    preview: document.getElementById("add-preview"),
-    country: document.getElementById("preview-country"),
-    copy: document.getElementById("f-copy"),
-    github: document.getElementById("f-github"),
+    name: $("f-name"), ticker: $("f-ticker"), exchange: $("f-exchange"), region: $("f-region"),
+    password: $("f-password"), pwField: $("pw-field"),
+    body: $("add-body"), intro: $("add-intro"), country: $("preview-country"),
+    autoBlock: $("auto-block"), submit: $("f-submit"), status: $("add-status"),
+    manualBlock: $("manual-block"), snippet: $("f-snippet"), copy: $("f-copy"), github: $("f-github"),
   };
 
   // Beurs-suggesties uit de bekende beurzen.
-  const dl = document.getElementById("exchange-list");
+  const dl = $("exchange-list");
   if (dl) dl.innerHTML = Object.keys(EXCHANGE_COUNTRY)
     .map((x) => `<option value="${escapeHtml(x)}"></option>`).join("");
 
-  els.github.href = COMPANIES_EDIT_URL;
+  // Modus instellen.
+  els.intro.textContent = auto
+    ? "Vul de gegevens in en klik op Toevoegen. Het bedrijf wordt automatisch aan het dashboard toegevoegd en verschijnt binnen enkele minuten — de publicatiedatum komt er bij de eerstvolgende update bij."
+    : "Vul de gegevens in. Je krijgt een kant-en-klare regel plus een link om companies.json op GitHub te openen. Na de eerstvolgende dagelijkse update verschijnt de publicatiedatum vanzelf.";
+  els.pwField.hidden = !auto;
+  els.autoBlock.hidden = !auto;
+  els.manualBlock.hidden = auto;
+  els.body.hidden = false;
+  if (!auto) els.github.href = COMPANIES_EDIT_URL;
+
   let regionTouched = false; // zodra de redacteur zelf een regio kiest, niet meer overschrijven
 
   toggle.addEventListener("click", () => {
@@ -298,35 +310,79 @@ function setupAddPanel() {
     if (!regionTouched && code && COUNTRY_REGION[code]) els.region.value = COUNTRY_REGION[code];
     const region = els.region.value;
 
-    if (!name) { els.preview.hidden = true; return; }
-    els.preview.hidden = false;
+    if (!name) {
+      els.country.innerHTML = `<span class="preview-empty">— vul een bedrijfsnaam in</span>`;
+      if (!auto) els.snippet.value = "";
+      return;
+    }
 
     const flag = (code && FLAG[code]) || FLAG_UNKNOWN;
     const cname = (code && COUNTRY_NAME[code]) || "onbekend — controleer beurs/ticker";
     els.country.innerHTML = `${flag}<span>${escapeHtml(cname)}</span>`;
 
-    const obj = ticker
-      ? { name, ticker, exchange, region }
-      : { name, ticker: null, exchange: exchange || "n.v.t.", region,
-          manual: true, note: "Handmatig toegevoegd — geen automatische bron." };
-    els.snippet.value = jsonLine(obj);
+    if (!auto) {
+      const obj = ticker
+        ? { name, ticker, exchange, region }
+        : { name, ticker: null, exchange: exchange || "n.v.t.", region,
+            manual: true, note: "Handmatig toegevoegd — geen automatische bron." };
+      els.snippet.value = jsonLine(obj);
+    }
   }
 
   [els.name, els.ticker, els.exchange].forEach((el) => el.addEventListener("input", update));
   els.exchange.addEventListener("change", update);
   els.region.addEventListener("change", () => { regionTouched = true; update(); });
+  update();
 
-  els.copy.addEventListener("click", async () => {
-    els.snippet.select();
-    try {
-      await navigator.clipboard.writeText(els.snippet.value);
-    } catch {
-      document.execCommand("copy");
-    }
-    const orig = els.copy.textContent;
-    els.copy.textContent = "Gekopieerd ✓";
-    setTimeout(() => { els.copy.textContent = orig; }, 1500);
-  });
+  if (auto) {
+    const setStatus = (msg, kind) => {
+      els.status.textContent = msg;
+      els.status.className = "add-status" + (kind ? " " + kind : "");
+    };
+    els.submit.addEventListener("click", async () => {
+      const payload = {
+        name: els.name.value.trim(),
+        ticker: els.ticker.value.trim(),
+        exchange: els.exchange.value.trim(),
+        region: els.region.value,
+        password: els.password.value,
+      };
+      if (!payload.name) return setStatus("Vul een bedrijfsnaam in.", "err");
+      if (!payload.password) return setStatus("Vul de toevoegcode in.", "err");
+
+      els.submit.disabled = true;
+      setStatus("Bezig met toevoegen…", "");
+      try {
+        const res = await fetch(ADD_WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) throw new Error(data.error || `Fout (${res.status})`);
+        setStatus(`✓ "${data.name}" toegevoegd — verschijnt binnen enkele minuten.`, "ok");
+        els.name.value = ""; els.ticker.value = ""; els.exchange.value = "";
+        regionTouched = false;
+        update();
+      } catch (err) {
+        setStatus(`Niet gelukt: ${err.message}`, "err");
+      } finally {
+        els.submit.disabled = false;
+      }
+    });
+  } else {
+    els.copy.addEventListener("click", async () => {
+      els.snippet.select();
+      try {
+        await navigator.clipboard.writeText(els.snippet.value);
+      } catch {
+        document.execCommand("copy");
+      }
+      const orig = els.copy.textContent;
+      els.copy.textContent = "Gekopieerd ✓";
+      setTimeout(() => { els.copy.textContent = orig; }, 1500);
+    });
+  }
 }
 
 async function init() {

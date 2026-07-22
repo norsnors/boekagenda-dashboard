@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cijferagenda — BNR redactie</title>
   <meta name="description" content="Wanneer publiceren beursgenoteerde bedrijven hun cijfers? Automatisch bijgewerkte agenda voor de BNR-redactie." />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <header class="topbar">
@@ -38,13 +38,13 @@
     </div>
 
     <section id="add-panel" class="add-panel" hidden aria-label="Bedrijf toevoegen">
-      <p class="add-intro">Vul de gegevens in. Je krijgt een kant-en-klare regel plus een link om <code>companies.json</code> op GitHub te openen. Na de eerstvolgende dagelijkse update verschijnt de publicatiedatum vanzelf.</p>
+      <p class="add-intro" id="add-intro"></p>
       <div class="add-grid">
         <label>Bedrijfsnaam
           <input type="text" id="f-name" placeholder="bijv. Coca-Cola" autocomplete="off" />
         </label>
         <label>Yahoo Finance-ticker
-          <input type="text" id="f-ticker" placeholder="bijv. KO, ASML.AS, 7974.T" autocomplete="off" list="ticker-hint" />
+          <input type="text" id="f-ticker" placeholder="bijv. KO, ASML.AS, 7974.T" autocomplete="off" />
           <span class="hint">Zoek de ticker op <a href="https://finance.yahoo.com/lookup" target="_blank" rel="noopener">finance.yahoo.com</a>. Leeg laten als het bedrijf niet los beursgenoteerd is.</span>
         </label>
         <label>Beurs
@@ -58,21 +58,37 @@
             <option value="ASIA">Azië</option>
           </select>
         </label>
+        <label id="pw-field" hidden>Toevoegcode
+          <input type="password" id="f-password" autocomplete="off" placeholder="code van de redactie" />
+        </label>
       </div>
       <datalist id="exchange-list"></datalist>
-      <div class="add-preview" id="add-preview" hidden>
+
+      <div class="add-body" id="add-body" hidden>
         <div class="add-preview-head">
           <span>Land herkend als:</span>
           <span id="preview-country" class="preview-country"></span>
         </div>
-        <label class="snippet-label">Deze regel toevoegen aan de <code>"companies"</code>-lijst:
-          <textarea id="f-snippet" rows="2" readonly spellcheck="false"></textarea>
-        </label>
-        <div class="add-actions">
-          <button id="f-copy" class="btn-add">Kopieer regel</button>
-          <a id="f-github" class="btn-github" href="#" target="_blank" rel="noopener">Open companies.json op GitHub ↗</a>
+
+        <!-- Automatische modus (Worker ingesteld) -->
+        <div id="auto-block" hidden>
+          <div class="add-actions">
+            <button id="f-submit" class="btn-github" type="button">Toevoegen aan dashboard</button>
+          </div>
+          <p class="add-status" id="add-status" role="status" aria-live="polite"></p>
         </div>
-        <p class="add-steps">Op GitHub: plak de regel binnen de <code>"companies": [ … ]</code>-lijst (bijv. onderaan, vóór de <code>]</code>), zet er een komma tussen, en klik <em>Commit changes</em>.</p>
+
+        <!-- Handmatige terugval (geen Worker ingesteld) -->
+        <div id="manual-block">
+          <label class="snippet-label">Deze regel toevoegen aan de <code>"companies"</code>-lijst:
+            <textarea id="f-snippet" rows="2" readonly spellcheck="false"></textarea>
+          </label>
+          <div class="add-actions">
+            <button id="f-copy" class="btn-add" type="button">Kopieer regel</button>
+            <a id="f-github" class="btn-github" href="#" target="_blank" rel="noopener">Open companies.json op GitHub ↗</a>
+          </div>
+          <p class="add-steps">Op GitHub: plak de regel binnen de <code>"companies": [ … ]</code>-lijst (bijv. onderaan, vóór de <code>]</code>), zet er een komma tussen, en klik <em>Commit changes</em>.</p>
+        </div>
       </div>
     </section>
 
@@ -96,6 +112,6 @@
     </footer>
   </main>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

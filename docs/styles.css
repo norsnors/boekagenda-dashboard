@@ -157,6 +157,10 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
 .btn-github:hover { background: #000; }
 .add-steps { margin: 12px 0 0; font-size: 12.5px; color: var(--ink-soft); }
 .add-panel code { background: var(--bg); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+.add-status { margin: 12px 0 0; font-size: 13px; min-height: 1.2em; }
+.add-status.ok { color: var(--green); font-weight: 700; }
+.add-status.err { color: #b42318; font-weight: 700; }
+.preview-empty { color: var(--ink-soft); font-weight: 400; }
 
 .foot { margin-top: 28px; color: var(--ink-soft); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 14px; }
 .empty { color: var(--ink-soft); text-align: center; padding: 30px; }
@@ -197,4 +201,5 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
   .ticker .src { color: #ff9a52; }
   .btn-github { background: #23262e; }
   .btn-github:hover { background: #2f333d; }
+  .add-status.err { color: #ff9a92; }
 }

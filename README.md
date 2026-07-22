@@ -64,11 +64,16 @@ toe of haal het weg:
 { "name": "Bedrijfsnaam", "ticker": "XXXX.AS", "exchange": "Euronext Amsterdam", "region": "NL" }
 ```
 
-> **Sneller via het dashboard.** Op het dashboard staat rechtsboven de knop
-> **“+ Bedrijf toevoegen”**. Vul naam, Yahoo-ticker, beurs en regio in; je krijgt de kant-en-klare
-> JSON-regel (het herkende land toont het tijdens het typen) plus een knop die
-> `scripts/companies.json` direct in de GitHub-editor opent. Plak de regel in de `"companies"`-lijst
-> en commit. De redactie hoeft dus geen bestanden lokaal te bewerken.
+> **Via het dashboard.** Op het dashboard staat rechtsboven de knop **“+ Bedrijf toevoegen”**.
+> Vul naam, Yahoo-ticker, beurs en regio in (het herkende land toont het tijdens het typen). Er zijn
+> twee modi, afhankelijk van of de toevoeg-Worker is ingesteld:
+>
+> - **Automatisch** (aanbevolen): met een ingestelde Cloudflare Worker klikt de redacteur op
+>   **Toevoegen** en wordt het bedrijf automatisch gecommit — het verschijnt binnen enkele minuten,
+>   zonder GitHub-account. Eenmalige setup: zie [`worker/README.md`](worker/README.md). Zet daarna de
+>   Worker-URL in `ADD_WORKER_URL` boven in [`docs/app.js`](docs/app.js).
+> - **Terugval** (zolang `ADD_WORKER_URL` leeg is): het formulier geeft de kant-en-klare JSON-regel
+>   plus een knop die `scripts/companies.json` in de GitHub-editor opent — plakken en committen.
 
 - **`ticker`** — de **Yahoo Finance**-ticker, mét beurssuffix. Veelgebruikte suffixen:
   `.AS` Amsterdam · `.BR` Brussel · `.PA` Parijs · `.DE` Xetra · `.L` Londen ·
