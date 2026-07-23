@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T10:34:49+02:00",
+  "generated_at": "2026-07-23T11:18:52+02:00",
   "companies": [
     {
       "name": "Aalberts",
@@ -9,15 +9,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/AALB.AS",
       "next_date": "2026-07-23",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-23T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Besi (BE Semiconductor)",
@@ -27,15 +28,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/BESI.AS",
       "next_date": "2026-07-23",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-23T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Intel",
@@ -47,13 +49,14 @@
       "next_date": "2026-07-23",
       "next_datetime_ams": "2026-07-23T22:00:00+02:00",
       "time_known": true,
+      "time_source": "yahoo",
       "session": "nabeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Relx",
@@ -63,15 +66,16 @@
       "country": "GB",
       "source_url": "https://finance.yahoo.com/quote/REL.L",
       "next_date": "2026-07-23",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-23T08:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Heijmans",
@@ -81,15 +85,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/HEIJM.AS",
       "next_date": "2026-07-24",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-24T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Volkswagen",
@@ -99,15 +104,16 @@
       "country": "DE",
       "source_url": "https://finance.yahoo.com/quote/VOW3.DE",
       "next_date": "2026-07-24",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-24T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ASM International",
@@ -117,15 +123,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/ASM.AS",
       "next_date": "2026-07-28",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-28T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Philips",
@@ -135,15 +142,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/PHIA.AS",
       "next_date": "2026-07-28",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-28T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "SK Hynix",
@@ -155,13 +163,14 @@
       "next_date": "2026-07-28",
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Unilever",
@@ -171,15 +180,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/UNA.AS",
       "next_date": "2026-07-28",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-28T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "IMCD",
@@ -189,15 +199,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/IMCD.AS",
       "next_date": "2026-07-29",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-29T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Meta",
@@ -209,13 +220,14 @@
       "next_date": "2026-07-29",
       "next_datetime_ams": "2026-07-29T22:00:00+02:00",
       "time_known": true,
+      "time_source": "yahoo",
       "session": "nabeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Microsoft",
@@ -227,13 +239,14 @@
       "next_date": "2026-07-29",
       "next_datetime_ams": "2026-07-29T22:00:00+02:00",
       "time_known": true,
+      "time_source": "yahoo",
       "session": "nabeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Samsung",
@@ -245,13 +258,14 @@
       "next_date": "2026-07-29",
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Air France-KLM",
@@ -261,15 +275,16 @@
       "country": "FR",
       "source_url": "https://finance.yahoo.com/quote/AF.PA",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Amazon",
@@ -281,13 +296,14 @@
       "next_date": "2026-07-30",
       "next_datetime_ams": "2026-07-30T22:00:00+02:00",
       "time_known": true,
+      "time_source": "yahoo",
       "session": "nabeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Apple",
@@ -299,13 +315,14 @@
       "next_date": "2026-07-30",
       "next_datetime_ams": "2026-07-30T22:00:00+02:00",
       "time_known": true,
+      "time_source": "yahoo",
       "session": "nabeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ArcelorMittal",
@@ -315,33 +332,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/MT.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
-    },
-    {
-      "name": "BAM (Koninklijke BAM Groep)",
-      "yahoo_ticker": "BAMNB.AS",
-      "exchange": "Euronext Amsterdam",
-      "region": "NL",
-      "country": "NL",
-      "source_url": "https://finance.yahoo.com/quote/BAMNB.AS",
-      "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
-      "status": "verwacht",
-      "manual": false,
-      "note": null,
-      "changed_since_yesterday": false,
-      "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "CVC Capital",
@@ -351,15 +351,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/CVC.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "DSM Firmenich",
@@ -369,15 +370,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/DSFIR.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ING",
@@ -387,15 +389,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/INGA.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Pharming",
@@ -405,15 +408,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/PHARM.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Shell",
@@ -423,15 +427,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/SHELL.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "UMG (Universal Music Group)",
@@ -441,15 +446,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/UMG.AS",
       "next_date": "2026-07-30",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-07-30T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "WDP",
@@ -459,33 +465,16 @@
       "country": "BE",
       "source_url": "https://finance.yahoo.com/quote/WDP.BR",
       "next_date": "2026-07-31",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
-      "status": "bevestigd",
-      "manual": false,
-      "note": null,
-      "changed_since_yesterday": false,
-      "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
-    },
-    {
-      "name": "SpaceX",
-      "yahoo_ticker": "SPCX",
-      "exchange": "Nasdaq",
-      "region": "US",
-      "country": "US",
-      "source_url": "https://finance.yahoo.com/quote/SPCX",
-      "next_date": "2026-08-04",
-      "next_datetime_ams": "2026-08-04T22:00:00+02:00",
+      "next_datetime_ams": "2026-07-31T07:00:00+02:00",
       "time_known": true,
-      "session": "nabeurs",
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Ahold Delhaize",
@@ -495,15 +484,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/AD.AS",
       "next_date": "2026-08-05",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-05T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Heineken",
@@ -513,15 +503,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/HEIA.AS",
       "next_date": "2026-08-05",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-05T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Novo Nordisk",
@@ -531,15 +522,16 @@
       "country": "DK",
       "source_url": "https://finance.yahoo.com/quote/NOVO-B.CO",
       "next_date": "2026-08-05",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-05T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Wolters Kluwer",
@@ -549,15 +541,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/WKL.AS",
       "next_date": "2026-08-05",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-05T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Magnum Ice Cream Company",
@@ -567,15 +560,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/MICC.AS",
       "next_date": "2026-08-06",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-06T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "NN Group",
@@ -585,15 +579,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/NN.AS",
       "next_date": "2026-08-06",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-06T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Nintendo",
@@ -605,13 +600,14 @@
       "next_date": "2026-08-06",
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "SBM Offshore",
@@ -621,15 +617,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/SBMO.AS",
       "next_date": "2026-08-06",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-06T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ABN Amro",
@@ -639,15 +636,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/ABN.AS",
       "next_date": "2026-08-12",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-12T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Adyen",
@@ -657,15 +655,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/ADYEN.AS",
       "next_date": "2026-08-13",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-13T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Fastned",
@@ -675,15 +674,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/FAST.AS",
       "next_date": "2026-08-13",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-13T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Foxconn (Hon Hai Precision)",
@@ -695,13 +695,14 @@
       "next_date": "2026-08-13",
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ASR Nederland",
@@ -711,15 +712,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/ASRNL.AS",
       "next_date": "2026-08-19",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-19T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Aegon",
@@ -729,15 +731,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/AGN.AS",
       "next_date": "2026-08-20",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-20T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Nvidia",
@@ -749,13 +752,14 @@
       "next_date": "2026-08-26",
       "next_datetime_ams": "2026-08-26T22:00:00+02:00",
       "time_known": true,
+      "time_source": "yahoo",
       "session": "nabeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "InPost",
@@ -765,15 +769,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/INPST.AS",
       "next_date": "2026-08-31",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-08-31T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Exor",
@@ -783,15 +788,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/EXO.AS",
       "next_date": "2026-09-22",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-09-22T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ASML",
@@ -801,15 +807,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/ASML.AS",
       "next_date": "2026-10-14",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-10-14T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "bevestigd",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Ubisoft",
@@ -819,15 +826,16 @@
       "country": "FR",
       "source_url": "https://finance.yahoo.com/quote/UBI.PA",
       "next_date": "2026-11-19",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-11-19T07:00:00+01:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Prosus",
@@ -837,15 +845,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/PRX.AS",
       "next_date": "2026-11-25",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2026-11-25T07:00:00+01:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Wereldhave",
@@ -855,15 +864,16 @@
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/WHA.AS",
       "next_date": "2027-02-12",
-      "next_datetime_ams": null,
-      "time_known": false,
-      "session": "onbekend",
+      "next_datetime_ams": "2027-02-12T07:00:00+01:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
       "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "AkzoNobel",
@@ -875,13 +885,14 @@
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": null,
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Alphabet",
@@ -893,13 +904,33 @@
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": null,
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
+    },
+    {
+      "name": "BAM (Koninklijke BAM Groep)",
+      "yahoo_ticker": "BAMNB.AS",
+      "exchange": "Euronext Amsterdam",
+      "region": "NL",
+      "country": "NL",
+      "source_url": "https://finance.yahoo.com/quote/BAMNB.AS",
+      "next_date": null,
+      "next_datetime_ams": null,
+      "time_known": false,
+      "time_source": null,
+      "session": "onbekend",
+      "status": null,
+      "manual": false,
+      "note": null,
+      "changed_since_yesterday": false,
+      "previous_date": null,
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "KPN",
@@ -911,13 +942,14 @@
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": null,
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Randstad",
@@ -929,13 +961,14 @@
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": null,
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "Tesla",
@@ -947,13 +980,14 @@
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": null,
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     },
     {
       "name": "ASN Bank",
@@ -965,13 +999,14 @@
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
+      "time_source": null,
       "session": "onbekend",
       "status": null,
       "manual": true,
       "note": "Onderdeel van de Volksbank; niet los beursgenoteerd. Geen automatische bron.",
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-23T10:34:49+02:00"
+      "fetched_at": "2026-07-23T11:18:52+02:00"
     }
   ]
 }
