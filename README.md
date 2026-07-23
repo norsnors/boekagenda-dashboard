@@ -39,8 +39,15 @@ zonder API-key.
   Amsterdamse tijd en leiden **voorbeurs/nabeurs** af uit de beursuren (bv. Tesla 16:00 ET =
   22:00 NL = *nabeurs*).
 - Voor **niet-Amerikaanse** noteringen is het intraday-tijdstip bij Yahoo een placeholder en dus
-  onbetrouwbaar. Daar tonen we de **datum** hard en de tijd als **"tijd onbekend"** — eerlijk in
-  plaats van schijnzekerheid.
+  onbetrouwbaar. Daar vullen we de tijd op twee manieren aan (Yahoo-intraday negeren we):
+  1. **Landconventie** (`PUBLICATION_CONVENTION` in `scripts/exchanges.py`): continentaal-Europese
+     fondsen publiceren vrijwel altijd rond **07:00 lokale tijd voorbeurs**, Londen 07:00 GMT
+     (= 08:00 Amsterdam). Zo'n tijd tonen we met een **`±`** en een tooltip — het is een
+     gebruikelijke tijd, niet per bedrijf bevestigd (`time_source: "convention"`).
+  2. **Per-bedrijf override** in `companies.json`: `"time_override": "HH:MM"` (Amsterdamse tijd,
+     wint altijd) + optioneel `"session_override"`. Toont als harde tijd (`time_source: "override"`).
+  - **Azië** (KR/JP/TW) heeft geen betrouwbare conventie → blijft **"tijd onbekend"** tenzij je een
+    override zet. Eerlijk in plaats van schijnzekerheid.
 
 **Bevestigd vs. verwacht.** Afgeleid uit Yahoo's `isEarningsDateEstimate`-vlag. Verwachte
 (nog niet bevestigde) datums krijgen een grijs/schuin uiterlijk + label **"verwacht"**.
@@ -81,6 +88,11 @@ toe of haal het weg:
   **Controleer de ticker** door 'm op [finance.yahoo.com](https://finance.yahoo.com) op te zoeken —
   naam-matching is foutgevoelig (spin-offs, dubbele noteringen).
 - **`region`** — `NL` | `EU` | `US` | `ASIA` (bepaalt het regiofilter en of voor-/nabeurs wordt afgeleid).
+- **`time_override`** *(optioneel)* — exacte publicatietijd `"HH:MM"` in **Amsterdamse tijd**.
+  Wint altijd van de landconventie en toont als harde tijd. Gebruik dit als je de tijd exact kent
+  of als de standaard (~07:00) niet klopt.
+- **`session_override`** *(optioneel)* — `"voorbeurs"` | `"nabeurs"` | `"tijdens handel"`. Zonder
+  deze wordt de sessie uit de tijd afgeleid.
 - **Land & vlag** worden **automatisch** afgeleid uit de beurs (anders de tickersuffix), dus die
   hoef je niet in te vullen. De mapping staat in [`scripts/exchanges.py`](scripts/exchanges.py)
   (`EXCHANGE_COUNTRY` / `SUFFIX_COUNTRY`) en wordt gespiegeld in [`docs/app.js`](docs/app.js);
@@ -160,9 +172,11 @@ Klaar — deel de Pages-URL met de redactie.
 
 ## Bekende beperkingen
 
-- **Voor-/nabeurs** is alleen hard voor Amerikaanse namen; bij niet-US toont het dashboard
-  "tijd onbekend" (Yahoo levert daar geen betrouwbaar tijdstip). Later te verbeteren met een
-  betaalde databron of een gerichte IR-scrape.
+- **Exacte tijd is alleen hard voor Amerikaanse namen** (uit Yahoo). Voor NL/EU tonen we de
+  gebruikelijke beurstijd (`±07:00`, zie boven) — meestal correct, maar niet per bedrijf
+  bevestigd; wijk je af, zet dan een `time_override`. Azië blijft "tijd onbekend". Verder te
+  verbeteren met een betaalde databron (Wall Street Horizon, Euronext Datashop) of een gerichte
+  IR-scrape.
 - **Yahoo is een onofficiële bron:** datums kunnen soms verschuiven of tijdelijk ontbreken
   (dan toont het dashboard "datum nog niet bekend"). Vandaar de "verwacht"-markering, de
   dagelijkse ververs en de changelog.
