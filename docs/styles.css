@@ -87,6 +87,7 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
 .row .date .weekday { color: var(--ink-soft); font-weight: 500; margin-right: 4px; text-transform: capitalize; }
 .row .time { font-variant-numeric: tabular-nums; }
 .row .time.unknown { color: var(--ink-soft); font-style: italic; }
+.row .time.approx { color: var(--ink-soft); border-bottom: 1px dotted currentColor; cursor: help; }
 .row .labels { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 
 .row.expected .name, .row.expected .date { color: var(--ink-soft); font-style: italic; }

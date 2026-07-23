@@ -14,14 +14,21 @@ import json
 import sys
 import time
 import warnings
-from datetime import datetime, date, timezone
+from datetime import datetime, date, time as dtime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pandas as pd
 import yfinance as yf
 
-from exchanges import us_session, TRUSTED_INTRADAY_REGIONS, country_for, yahoo_url
+from exchanges import (
+    us_session,
+    TRUSTED_INTRADAY_REGIONS,
+    PUBLICATION_CONVENTION,
+    session_from_ams_time,
+    country_for,
+    yahoo_url,
+)
 
 warnings.filterwarnings("ignore")
 
@@ -129,6 +136,7 @@ def resolve_next(tk: yf.Ticker, region: str, today: date) -> dict | None:
     time_known = False
     session = "onbekend"
     next_datetime_ams = None
+    time_source = None
 
     if region in TRUSTED_INTRADAY_REGIONS and chosen["has_time"] and chosen["dt_utc"]:
         et_dt = chosen["dt_utc"].astimezone(ET)
@@ -136,6 +144,7 @@ def resolve_next(tk: yf.Ticker, region: str, today: date) -> dict | None:
         ams_dt = chosen["dt_utc"].astimezone(AMS)
         next_datetime_ams = ams_dt.isoformat()
         time_known = True
+        time_source = "yahoo"
 
     return {
         "next_date": earliest.isoformat(),
@@ -143,7 +152,56 @@ def resolve_next(tk: yf.Ticker, region: str, today: date) -> dict | None:
         "time_known": time_known,
         "session": session,
         "status": status,
+        "time_source": time_source,
     }
+
+
+def _parse_hhmm(value) -> tuple[int, int] | None:
+    """Parse 'HH:MM' (Amsterdamse tijd) uit een override; None als ongeldig."""
+    try:
+        hh, mm = str(value).strip().split(":")
+        hh, mm = int(hh), int(mm)
+        if 0 <= hh < 24 and 0 <= mm < 60:
+            return hh, mm
+    except (ValueError, AttributeError):
+        pass
+    return None
+
+
+def apply_time_fallback(result: dict | None, company: dict, country: str | None) -> dict | None:
+    """Vul sessie + tijd aan als yfinance geen betrouwbare intraday-tijd gaf.
+
+    Prioriteit: (1) per-bedrijf override, (2) landconventie. Muteert en retourneert
+    het result. Doet niets als er al een betrouwbare tijd is (US intraday) of als er
+    (nog) geen datum is.
+    """
+    if not result or not result.get("next_date") or result.get("time_known"):
+        return result
+
+    d = date.fromisoformat(result["next_date"])
+
+    # 1) Handmatige override (Amsterdamse tijd) — gezaghebbend.
+    hhmm = _parse_hhmm(company.get("time_override"))
+    if hhmm:
+        ams_dt = datetime.combine(d, dtime(hhmm[0], hhmm[1]), tzinfo=AMS)
+        result["next_datetime_ams"] = ams_dt.isoformat()
+        result["time_known"] = True
+        result["time_source"] = "override"
+        result["session"] = company.get("session_override") or session_from_ams_time(ams_dt.time())
+        return result
+
+    # 2) Landconventie (continentaal Europa ~07:00 lokaal voorbeurs, Londen 07:00 GMT).
+    conv = PUBLICATION_CONVENTION.get(country)
+    if conv:
+        hh, mm, tzname, sess = conv
+        local_dt = datetime.combine(d, dtime(hh, mm), tzinfo=ZoneInfo(tzname))
+        ams_dt = local_dt.astimezone(AMS)
+        result["next_datetime_ams"] = ams_dt.isoformat()
+        result["time_known"] = True
+        result["time_source"] = "convention"
+        result["session"] = company.get("session_override") or sess
+
+    return result
 
 
 def build_entry(company: dict, today: date, now_iso: str) -> dict:
@@ -157,6 +215,7 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
         "next_date": None,
         "next_datetime_ams": None,
         "time_known": False,
+        "time_source": None,
         "session": "onbekend",
         "status": None,
         "manual": bool(company.get("manual")),
@@ -182,6 +241,10 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
                       file=sys.stderr)
             else:
                 time.sleep(1.5)
+
+    # Tijd/sessie aanvullen uit override of landconventie als yfinance niets
+    # betrouwbaars intraday gaf (alle niet-US-namen).
+    result = apply_time_fallback(result, company, base["country"])
 
     if result:
         base.update(result)

@@ -1,5 +1,6 @@
 {
   "_comment": "Bronlijst voor het cijferagenda-dashboard. 'ticker' = Yahoo Finance-ticker (met beurssuffix). region: NL | EU | US | ASIA. manual:true = geen automatische bron; wordt getoond als 'handmatig / n.v.t.'. Een bedrijf toevoegen/verwijderen = hier een object toevoegen/weghalen. Zie README.",
+  "_comment_tijden": "Tijd voorbeurs/nabeurs: voor US-namen komt de exacte tijd van yfinance. Voor NL/EU-namen vult de fetcher automatisch de gebruikelijke beurstijd in (~07:00 voorbeurs, Londen 08:00 Ams.), getoond met een ± als 'gebruikelijk'. Klopt een tijd niet of ken je 'm exact? Voeg dan aan dat bedrijf toe: \"time_override\": \"HH:MM\" (Amsterdamse tijd, wint altijd) en optioneel \"session_override\": \"voorbeurs\" | \"nabeurs\" | \"tijdens handel\". Azië heeft geen conventie en blijft 'tijd onbekend' tenzij je een override zet.",
   "companies": [
     { "name": "Prosus", "ticker": "PRX.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
     { "name": "ASML", "ticker": "ASML.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
@@ -53,7 +54,6 @@
     { "name": "Aegon", "ticker": "AGN.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
     { "name": "Nvidia", "ticker": "NVDA", "exchange": "Nasdaq", "region": "US" },
     { "name": "InPost", "ticker": "INPST.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
-    { "name": "Exor", "ticker": "EXO.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
-    { "name": "SpaceX", "ticker": "SPCX", "exchange": "Nasdaq", "region": "US" }
+    { "name": "Exor", "ticker": "EXO.AS", "exchange": "Euronext Amsterdam", "region": "NL" }
   ]
 }

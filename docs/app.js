@@ -171,6 +171,11 @@ function timeCell(c) {
     const t = new Date(c.next_datetime_ams);
     const hh = String(t.getHours()).padStart(2, "0");
     const mm = String(t.getMinutes()).padStart(2, "0");
+    // Conventietijd (landstandaard, niet per bedrijf bevestigd) tonen we met een
+    // "±"-teken + tooltip; yfinance-intraday en handmatige overrides tonen plat.
+    if (c.time_source === "convention") {
+      return `<span class="time approx" title="Gebruikelijke publicatietijd voor deze beurs (±07:00 voorbeurs) — niet per bedrijf bevestigd. Wijk je hiervan af? Zet een time_override in companies.json.">±${hh}:${mm}</span>`;
+    }
     return `<span class="time">${hh}:${mm}</span>`;
   }
   return `<span class="time unknown">tijd onbekend</span>`;

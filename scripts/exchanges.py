@@ -24,6 +24,42 @@ MARKET_HOURS = {
 # Regio's waarvan we het intraday-tijdstip vertrouwen voor sessie-afleiding.
 TRUSTED_INTRADAY_REGIONS = {"US"}
 
+# ---------------------------------------------------------------------------
+# Gebruikelijke publicatietijd van kwartaal-/jaarcijfers per land (LOKALE
+# beurstijd). Continentaal-Europese beursfondsen publiceren hun persbericht
+# vrijwel altijd rond 07:00 lokale tijd vóór opening; Londen doorgaans 07:00 GMT
+# (= 08:00 Amsterdam). Dit is een CONVENTIE, geen per-bedrijf bevestigde tijd:
+# de fetcher zet time_source="convention" zodat het dashboard zo'n tijd zichtbaar
+# als "gebruikelijk" toont i.p.v. als hard bevestigd. Klopt een tijd niet? Zet
+# 'm dan per bedrijf via "time_override" (+ evt. "session_override") in
+# companies.json — die override wint altijd.
+#
+# Azië (KR/JP/TW) staat er bewust NIET in: publicatietijden lopen daar te veel
+# uiteen om een betrouwbare conventie te hebben. Die blijven "tijd onbekend"
+# tenzij je ze per bedrijf met een override invult.
+# country -> (uur, minuut, IANA-tz, sessie)
+PUBLICATION_CONVENTION = {
+    "NL": (7, 0, "Europe/Amsterdam", "voorbeurs"),
+    "FR": (7, 0, "Europe/Paris", "voorbeurs"),
+    "BE": (7, 0, "Europe/Brussels", "voorbeurs"),
+    "DE": (7, 0, "Europe/Berlin", "voorbeurs"),
+    "DK": (7, 0, "Europe/Copenhagen", "voorbeurs"),
+    "GB": (7, 0, "Europe/London", "voorbeurs"),
+}
+
+
+def session_from_ams_time(t):
+    """Grove sessie-indeling o.b.v. een Amsterdamse kloktijd (datetime.time).
+
+    Voor overrides die wél een tijd maar geen expliciete sessie meegeven.
+    Euronext Amsterdam-uren (09:00–17:40) als referentie.
+    """
+    if t < time(9, 0):
+        return "voorbeurs"
+    if t >= time(17, 40):
+        return "nabeurs"
+    return "tijdens handel"
+
 REGION_LABELS = {
     "NL": "Nederland",
     "EU": "Europa",
