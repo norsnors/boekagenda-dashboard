@@ -53,6 +53,7 @@
     { "name": "Aegon", "ticker": "AGN.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
     { "name": "Nvidia", "ticker": "NVDA", "exchange": "Nasdaq", "region": "US" },
     { "name": "InPost", "ticker": "INPST.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
-    { "name": "Exor", "ticker": "EXO.AS", "exchange": "Euronext Amsterdam", "region": "NL" }
+    { "name": "Exor", "ticker": "EXO.AS", "exchange": "Euronext Amsterdam", "region": "NL" },
+    { "name": "SpaceX", "ticker": "SPCX", "exchange": "Nasdaq", "region": "US" }
   ]
 }
