@@ -137,6 +137,24 @@ function groupFor(c, today, weekEnd) {
   return "later";
 }
 
+/* Nabeurs-cijfers komen ná het slot van de handelsdag, dus zetten we ze onderaan
+   de dag waarop ze uitkomen. Stabiele sort: eerst op datum, dan nabeurs achteraan;
+   bedrijven met een onbekende/andere sessie houden hun huidige onderlinge volgorde. */
+function sortDayThenNabeurs(items) {
+  return items
+    .map((c, i) => [c, i])
+    .sort((a, b) => {
+      const da = a[0].next_date || "";
+      const db = b[0].next_date || "";
+      if (da !== db) return da < db ? -1 : 1;
+      const na = a[0].session === "nabeurs" ? 1 : 0;
+      const nb = b[0].session === "nabeurs" ? 1 : 0;
+      if (na !== nb) return na - nb;
+      return a[1] - b[1]; // gelijk: oorspronkelijke volgorde behouden
+    })
+    .map((pair) => pair[0]);
+}
+
 const GROUPS = [
   { key: "today", title: "Vandaag", hot: true },
   { key: "tomorrow", title: "Morgen", hot: true },
@@ -233,11 +251,12 @@ function render() {
   for (const g of GROUPS) {
     const items = buckets[g.key];
     if (!items || !items.length) continue;
+    const ordered = sortDayThenNabeurs(items);
     const showHead = !["nodate", "manual"].includes(g.key);
     parts.push(`<section class="section ${g.hot ? "hot" : ""}">
       <h2>${g.title} <span class="cnt">${items.length}</span></h2>
       ${showHead ? `<div class="col-head"><div>Bedrijf</div><div>Datum</div><div>Tijd (Ams.)</div><div>Land</div><div style="text-align:right">Sessie / status</div></div>` : ""}
-      <div class="rows">${items.map(rowHtml).join("")}</div>
+      <div class="rows">${ordered.map(rowHtml).join("")}</div>
     </section>`);
   }
 

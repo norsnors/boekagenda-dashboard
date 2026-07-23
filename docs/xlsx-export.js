@@ -115,10 +115,20 @@
 
   /* Geordende rijen: gesorteerd op datum, lege scheidingsregel tussen datumgroepen,
      bedrijven zonder datum onderaan. Gedeeld door de klembord-builders. */
+  /* Binnen dezelfde datum komen nabeurs-cijfers onderaan (ze verschijnen ná het
+     slot van de handelsdag); daarna alfabetisch op naam. */
+  function byDateNabeursName(a, b) {
+    if (a.next_date !== b.next_date) return a.next_date < b.next_date ? -1 : 1;
+    const na = a.session === "nabeurs" ? 1 : 0;
+    const nb = b.session === "nabeurs" ? 1 : 0;
+    if (na !== nb) return na - nb;
+    return a.name.localeCompare(b.name);
+  }
+
   function orderedRows(companies) {
     const dated = companies
       .filter((c) => !c.manual && c.next_date)
-      .sort((a, b) => (a.next_date < b.next_date ? -1 : a.next_date > b.next_date ? 1 : a.name.localeCompare(b.name)));
+      .sort(byDateNabeursName);
     const undated = companies.filter((c) => !c.manual && !c.next_date);
     const rows = [];
     let prev = null;
@@ -226,7 +236,7 @@
     // Datable bedrijven, gesorteerd op datum en daarna naam.
     const dated = companies
       .filter((c) => !c.manual && c.next_date)
-      .sort((a, b) => (a.next_date < b.next_date ? -1 : a.next_date > b.next_date ? 1 : a.name.localeCompare(b.name)));
+      .sort(byDateNabeursName);
     const undated = companies.filter((c) => !c.manual && !c.next_date);
 
     let row = 4;
