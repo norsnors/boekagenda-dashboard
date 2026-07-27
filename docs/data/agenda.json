@@ -1,44 +1,6 @@
 {
-  "generated_at": "2026-07-24T10:47:00+02:00",
+  "generated_at": "2026-07-27T09:37:44+02:00",
   "companies": [
-    {
-      "name": "Heijmans",
-      "yahoo_ticker": "HEIJM.AS",
-      "exchange": "Euronext Amsterdam",
-      "region": "NL",
-      "country": "NL",
-      "source_url": "https://finance.yahoo.com/quote/HEIJM.AS",
-      "next_date": "2026-07-24",
-      "next_datetime_ams": "2026-07-24T07:00:00+02:00",
-      "time_known": true,
-      "time_source": "convention",
-      "session": "voorbeurs",
-      "status": "verwacht",
-      "manual": false,
-      "note": null,
-      "changed_since_yesterday": false,
-      "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
-    },
-    {
-      "name": "Volkswagen",
-      "yahoo_ticker": "VOW3.DE",
-      "exchange": "Frankfurt (Xetra)",
-      "region": "EU",
-      "country": "DE",
-      "source_url": "https://finance.yahoo.com/quote/VOW3.DE",
-      "next_date": "2026-07-24",
-      "next_datetime_ams": "2026-07-24T07:00:00+02:00",
-      "time_known": true,
-      "time_source": "convention",
-      "session": "voorbeurs",
-      "status": "bevestigd",
-      "manual": false,
-      "note": null,
-      "changed_since_yesterday": false,
-      "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
-    },
     {
       "name": "ASM International",
       "yahoo_ticker": "ASM.AS",
@@ -56,7 +18,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Philips",
@@ -75,7 +37,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "SK Hynix",
@@ -94,7 +56,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Unilever",
@@ -113,7 +75,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "IMCD",
@@ -132,7 +94,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Meta",
@@ -151,7 +113,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Microsoft",
@@ -170,7 +132,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Samsung",
@@ -189,7 +151,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Air France-KLM",
@@ -208,7 +170,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Amazon",
@@ -227,7 +189,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Apple",
@@ -246,7 +208,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "ArcelorMittal",
@@ -265,7 +227,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "BAM (Koninklijke BAM Groep)",
@@ -284,7 +246,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "DSM Firmenich",
@@ -303,7 +265,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "ING",
@@ -322,7 +284,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Pharming",
@@ -341,7 +303,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Shell",
@@ -360,7 +322,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "UMG (Universal Music Group)",
@@ -379,7 +341,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "WDP",
@@ -398,7 +360,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Ahold Delhaize",
@@ -417,7 +379,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Heineken",
@@ -436,7 +398,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Novo Nordisk",
@@ -455,7 +417,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Wolters Kluwer",
@@ -474,7 +436,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Magnum Ice Cream Company",
@@ -493,7 +455,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "NN Group",
@@ -512,7 +474,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Nintendo",
@@ -531,7 +493,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "SBM Offshore",
@@ -550,7 +512,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "ABN Amro",
@@ -569,7 +531,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Adyen",
@@ -588,7 +550,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Fastned",
@@ -607,7 +569,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Foxconn (Hon Hai Precision)",
@@ -626,7 +588,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "ASR Nederland",
@@ -645,7 +607,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Aegon",
@@ -664,7 +626,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Nvidia",
@@ -683,7 +645,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "InPost",
@@ -702,7 +664,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "CVC Capital",
@@ -721,7 +683,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Exor",
@@ -740,7 +702,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "ASML",
@@ -759,7 +721,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "AkzoNobel",
@@ -778,7 +740,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Randstad",
@@ -797,7 +759,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Tesla",
@@ -816,7 +778,45 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
+    },
+    {
+      "name": "Besi (BE Semiconductor)",
+      "yahoo_ticker": "BESI.AS",
+      "exchange": "Euronext Amsterdam",
+      "region": "NL",
+      "country": "NL",
+      "source_url": "https://finance.yahoo.com/quote/BESI.AS",
+      "next_date": "2026-10-22",
+      "next_datetime_ams": "2026-10-22T07:00:00+02:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
+      "status": "bevestigd",
+      "manual": false,
+      "note": null,
+      "changed_since_yesterday": false,
+      "previous_date": null,
+      "fetched_at": "2026-07-27T09:37:44+02:00"
+    },
+    {
+      "name": "Intel",
+      "yahoo_ticker": "INTC",
+      "exchange": "Nasdaq",
+      "region": "US",
+      "country": "US",
+      "source_url": "https://finance.yahoo.com/quote/INTC",
+      "next_date": "2026-10-22",
+      "next_datetime_ams": "2026-10-22T22:00:00+02:00",
+      "time_known": true,
+      "time_source": "yahoo",
+      "session": "nabeurs",
+      "status": "verwacht",
+      "manual": false,
+      "note": null,
+      "changed_since_yesterday": false,
+      "previous_date": null,
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Alphabet",
@@ -835,7 +835,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "KPN",
@@ -854,7 +854,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Ubisoft",
@@ -873,7 +873,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Prosus",
@@ -892,7 +892,26 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
+    },
+    {
+      "name": "Relx",
+      "yahoo_ticker": "REL.L",
+      "exchange": "London Stock Exchange",
+      "region": "EU",
+      "country": "GB",
+      "source_url": "https://finance.yahoo.com/quote/REL.L",
+      "next_date": "2027-02-11",
+      "next_datetime_ams": "2027-02-11T08:00:00+01:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
+      "status": "verwacht",
+      "manual": false,
+      "note": null,
+      "changed_since_yesterday": false,
+      "previous_date": null,
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Wereldhave",
@@ -911,7 +930,26 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
+    },
+    {
+      "name": "Heijmans",
+      "yahoo_ticker": "HEIJM.AS",
+      "exchange": "Euronext Amsterdam",
+      "region": "NL",
+      "country": "NL",
+      "source_url": "https://finance.yahoo.com/quote/HEIJM.AS",
+      "next_date": "2027-02-19",
+      "next_datetime_ams": "2027-02-19T07:00:00+01:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
+      "status": "verwacht",
+      "manual": false,
+      "note": null,
+      "changed_since_yesterday": true,
+      "previous_date": "2026-07-24",
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "Aalberts",
@@ -920,55 +958,17 @@
       "region": "NL",
       "country": "NL",
       "source_url": "https://finance.yahoo.com/quote/AALB.AS",
-      "next_date": null,
-      "next_datetime_ams": null,
-      "time_known": false,
-      "time_source": null,
-      "session": "onbekend",
-      "status": null,
+      "next_date": "2027-02-23",
+      "next_datetime_ams": "2027-02-23T07:00:00+01:00",
+      "time_known": true,
+      "time_source": "convention",
+      "session": "voorbeurs",
+      "status": "verwacht",
       "manual": false,
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
-    },
-    {
-      "name": "Besi (BE Semiconductor)",
-      "yahoo_ticker": "BESI.AS",
-      "exchange": "Euronext Amsterdam",
-      "region": "NL",
-      "country": "NL",
-      "source_url": "https://finance.yahoo.com/quote/BESI.AS",
-      "next_date": null,
-      "next_datetime_ams": null,
-      "time_known": false,
-      "time_source": null,
-      "session": "onbekend",
-      "status": null,
-      "manual": false,
-      "note": null,
-      "changed_since_yesterday": false,
-      "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
-    },
-    {
-      "name": "Intel",
-      "yahoo_ticker": "INTC",
-      "exchange": "Nasdaq",
-      "region": "US",
-      "country": "US",
-      "source_url": "https://finance.yahoo.com/quote/INTC",
-      "next_date": null,
-      "next_datetime_ams": null,
-      "time_known": false,
-      "time_source": null,
-      "session": "onbekend",
-      "status": null,
-      "manual": false,
-      "note": null,
-      "changed_since_yesterday": false,
-      "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "MAGNUM",
@@ -987,15 +987,15 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
-      "name": "Relx",
-      "yahoo_ticker": "REL.L",
-      "exchange": "London Stock Exchange",
+      "name": "Volkswagen",
+      "yahoo_ticker": "VOW3.DE",
+      "exchange": "Frankfurt (Xetra)",
       "region": "EU",
-      "country": "GB",
-      "source_url": "https://finance.yahoo.com/quote/REL.L",
+      "country": "DE",
+      "source_url": "https://finance.yahoo.com/quote/VOW3.DE",
       "next_date": null,
       "next_datetime_ams": null,
       "time_known": false,
@@ -1006,7 +1006,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     },
     {
       "name": "ASN Bank",
@@ -1025,7 +1025,7 @@
       "note": "Onderdeel van de Volksbank; niet los beursgenoteerd. Geen automatische bron.",
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-07-24T10:47:00+02:00"
+      "fetched_at": "2026-07-27T09:37:44+02:00"
     }
   ]
 }
