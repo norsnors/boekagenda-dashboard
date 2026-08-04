@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T08:31:06+02:00",
+  "generated_at": "2026-08-04T09:42:27+02:00",
   "companies": [
     {
       "name": "Ahold Delhaize",
@@ -18,7 +18,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Heineken",
@@ -37,7 +37,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Novo Nordisk",
@@ -56,7 +56,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Wolters Kluwer",
@@ -75,7 +75,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "NN Group",
@@ -94,7 +94,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Nintendo",
@@ -113,7 +113,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "SBM Offshore",
@@ -132,7 +132,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ABN Amro",
@@ -151,7 +151,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Adyen",
@@ -170,7 +170,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Fastned",
@@ -189,7 +189,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Foxconn (Hon Hai Precision)",
@@ -208,7 +208,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ASR Nederland",
@@ -227,7 +227,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Aegon",
@@ -246,7 +246,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Nvidia",
@@ -265,7 +265,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "InPost",
@@ -284,7 +284,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "CVC Capital",
@@ -303,7 +303,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Exor",
@@ -322,7 +322,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ASML",
@@ -341,7 +341,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "AkzoNobel",
@@ -360,7 +360,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Randstad",
@@ -379,7 +379,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Tesla",
@@ -398,7 +398,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Besi (BE Semiconductor)",
@@ -417,7 +417,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Intel",
@@ -436,7 +436,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "WDP",
@@ -455,7 +455,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ASM International",
@@ -474,7 +474,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "SK Hynix",
@@ -493,7 +493,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Alphabet",
@@ -512,7 +512,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "KPN",
@@ -531,7 +531,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Meta",
@@ -550,7 +550,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Microsoft",
@@ -569,7 +569,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Samsung",
@@ -588,7 +588,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Amazon",
@@ -607,7 +607,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Apple",
@@ -626,7 +626,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ING",
@@ -645,7 +645,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Magnum Ice Cream Company",
@@ -664,7 +664,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Shell",
@@ -683,7 +683,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "UMG (Universal Music Group)",
@@ -702,7 +702,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Volkswagen",
@@ -721,7 +721,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Philips",
@@ -740,7 +740,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Air France-KLM",
@@ -759,7 +759,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ArcelorMittal",
@@ -778,7 +778,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "IMCD",
@@ -797,7 +797,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Pharming",
@@ -816,7 +816,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Ubisoft",
@@ -835,7 +835,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Prosus",
@@ -854,7 +854,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "DSM Firmenich",
@@ -873,7 +873,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Unilever",
@@ -892,7 +892,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Relx",
@@ -911,7 +911,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Wereldhave",
@@ -930,7 +930,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "BAM (Koninklijke BAM Groep)",
@@ -949,7 +949,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Heijmans",
@@ -968,7 +968,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "Aalberts",
@@ -987,7 +987,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "MAGNUM",
@@ -1006,7 +1006,7 @@
       "note": null,
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     },
     {
       "name": "ASN Bank",
@@ -1025,7 +1025,7 @@
       "note": "Onderdeel van de Volksbank; niet los beursgenoteerd. Geen automatische bron.",
       "changed_since_yesterday": false,
       "previous_date": null,
-      "fetched_at": "2026-08-04T08:31:06+02:00"
+      "fetched_at": "2026-08-04T09:42:27+02:00"
     }
   ]
 }
