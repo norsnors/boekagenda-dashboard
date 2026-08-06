@@ -334,5 +334,11 @@
     "name": "DSM Firmenich",
     "from": "2027-02-09",
     "to": "2027-02-18"
+  },
+  {
+    "run_date": "2026-08-06",
+    "name": "Foxconn (Hon Hai Precision)",
+    "from": "2026-08-13",
+    "to": "2026-08-12"
   }
 ]
