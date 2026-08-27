@@ -340,5 +340,11 @@
     "name": "Foxconn (Hon Hai Precision)",
     "from": "2026-08-13",
     "to": "2026-08-12"
+  },
+  {
+    "run_date": "2026-08-27",
+    "name": "Nvidia",
+    "from": "2026-08-26",
+    "to": "2026-11-17"
   }
 ]
