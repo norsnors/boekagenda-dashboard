@@ -110,6 +110,16 @@ export default {
       return json({ error: `Kon niet toevoegen: ${err.message}` }, 502, cors);
     }
   },
+
+  /* Ochtendwekker. GitHub start geplande runs in de praktijk uren te laat (rond
+     13:00-15:00 in plaats van 06:00). Een Cron Trigger op deze Worker (04:00 UTC,
+     ma-vr) start de fetch-workflow daarom zelf. Vereist Actions: Read and write
+     op het GITHUB_TOKEN. Zie worker/README.md. */
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(ghSend(
+      `${GH}/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`,
+      env, "POST", { ref: BRANCH }));
+  },
 };
 
 /* ---------- helpers ---------- */

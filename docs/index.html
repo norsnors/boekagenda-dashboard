@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cijferagenda — BNR redactie</title>
   <meta name="description" content="Wanneer publiceren beursgenoteerde bedrijven hun cijfers? Automatisch bijgewerkte agenda voor de BNR-redactie." />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <header class="topbar">
@@ -106,14 +106,15 @@
     <p class="empty" id="empty" hidden>Geen bedrijven gevonden voor deze zoekopdracht.</p>
 
     <footer class="foot">
-      <p>Bron: Yahoo Finance (via yfinance), dagelijks automatisch ververst. Tijden in Amsterdamse tijd.
-      Voor niet-Amerikaanse noteringen levert de bron geen betrouwbaar tijdstip; daar tonen we alleen de datum.
-      Klik op <strong>bron ↗</strong> bij een bedrijf om de datum te verifiëren op de Yahoo Finance-pagina.
+      <p>Bron: Yahoo Finance (via yfinance), dagelijks automatisch ververst, aangevuld met met de hand
+      vastgezette datums van tussentijdse updates. Tijden in Amsterdamse tijd; een tijd met ± is bij benadering.
+      Yahoo kent alleen volledige kwartaal- en jaarcijfers: staat er <strong>controleer</strong>, kijk dan op de
+      beleggerssite of er eerder een update komt. Klik op <strong>bron ↗</strong> om een datum te verifiëren.
       <span id="count"></span></p>
     </footer>
   </main>
 
-  <script src="xlsx-export.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <script src="xlsx-export.js?v=10"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>

@@ -44,6 +44,7 @@ CHANGELOG_FILE = DATA_DIR / "changelog.json"
 
 RETRIES = 2
 SLEEP_BETWEEN = 0.4  # beleefde pauze tegen Yahoo's soft rate-limit
+CHECK_AFTER_DAYS = 100  # verder weg zonder vaste datum => 'controleer'-label
 
 
 def load_companies() -> list[dict]:
@@ -140,8 +141,13 @@ def resolve_next(tk: yf.Ticker, region: str, today: date) -> dict | None:
 
     if region in TRUSTED_INTRADAY_REGIONS and chosen["has_time"] and chosen["dt_utc"]:
         et_dt = chosen["dt_utc"].astimezone(ET)
+        # Yahoo's US-tijd is een vaste plaatshouder in UTC (20:00 = 16:00 zomertijd).
+        # Na de Amerikaanse wintertijdwissel valt die op 15:00 ET en lijkt het 'tijdens
+        # handel'. Alles vanaf 15:00 ET is in de praktijk nabeurs: zet het op het slot.
+        if et_dt.time() >= dtime(15, 0):
+            et_dt = et_dt.replace(hour=16, minute=0, second=0, microsecond=0)
         session = us_session(et_dt)
-        ams_dt = chosen["dt_utc"].astimezone(AMS)
+        ams_dt = et_dt.astimezone(AMS)
         next_datetime_ams = ams_dt.isoformat()
         time_known = True
         time_source = "yahoo"
@@ -166,6 +172,39 @@ def _parse_hhmm(value) -> tuple[int, int] | None:
     except (ValueError, AttributeError):
         pass
     return None
+
+
+def apply_date_override(result: dict | None, company: dict, today: date) -> dict | None:
+    """Vaste datum uit companies.json ('date_override') gaat vóór Yahoo.
+
+    Yahoo kent alleen volledige kwartaal- en jaarcijfers, geen tussentijdse trading
+    updates, en zit er soms een dag naast. Een override is door de redactie
+    gecontroleerd en wint dus altijd, zolang hij vandaag of later valt; daarna neemt
+    Yahoo het vanzelf weer over.
+    """
+    d = company.get("date_override")
+    try:
+        d = date.fromisoformat(str(d)) if d else None
+    except ValueError:
+        print(f"  ! {company['name']}: ongeldige date_override {d!r}", file=sys.stderr)
+        d = None
+    if not d or d < today:
+        return result
+
+    result = {
+        "next_date": d.isoformat(),
+        "next_datetime_ams": None,
+        "time_known": False,
+        "session": "onbekend",
+        "status": "bevestigd",
+        "time_source": None,
+        "date_source": "override",
+    }
+    if company.get("event"):
+        result["event"] = company["event"]
+    if company.get("date_source_url"):
+        result["source_url"] = company["date_source_url"]
+    return result
 
 
 def apply_time_fallback(result: dict | None, company: dict, country: str | None) -> dict | None:
@@ -222,6 +261,9 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
         "note": company.get("note"),
         "changed_since_yesterday": False,
         "previous_date": None,
+        "date_source": "yahoo",
+        "event": None,
+        "check": False,
         "fetched_at": now_iso,
     }
 
@@ -242,6 +284,9 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
             else:
                 time.sleep(1.5)
 
+    # Vaste datum uit companies.json (bv. een trading update die Yahoo niet kent).
+    result = apply_date_override(result, company, today)
+
     # Tijd/sessie aanvullen uit override of landconventie als yfinance niets
     # betrouwbaars intraday gaf (alle niet-US-namen).
     result = apply_time_fallback(result, company, base["country"])
@@ -249,6 +294,15 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
     if result:
         base.update(result)
     return base
+
+
+def mark_check(entry: dict, company: dict, today: date) -> None:
+    """Controle-signaal: Yahoo mist tussentijdse updates. Ligt de eerstvolgende datum
+    ver weg en is die niet met de hand vastgezet, dan moet de redactie checken."""
+    entry["check"] = bool(
+        entry["next_date"] and entry.get("date_source") != "override"
+        and not company.get("no_interim")
+        and (date.fromisoformat(entry["next_date"]) - today).days > CHECK_AFTER_DAYS)
 
 
 def load_previous_dates() -> dict[str, str | None]:
@@ -262,14 +316,48 @@ def load_previous_dates() -> dict[str, str | None]:
         return {}
 
 
-def apply_diff(entries: list[dict], prev_dates: dict, run_date: str) -> list[dict]:
+def load_previous_entries() -> dict[str, dict]:
+    """De volledige regels van de vorige run, per bedrijfsnaam."""
+    if not AGENDA_FILE.exists():
+        return {}
+    try:
+        with open(AGENDA_FILE, encoding="utf-8") as f:
+            prev = json.load(f)
+        return {c["name"]: c for c in prev.get("companies", [])}
+    except Exception:
+        return {}
+
+
+KEEP_FIELDS = ("next_date", "next_datetime_ams", "time_known", "time_source",
+               "session", "status", "date_source", "event", "check", "source_url")
+
+
+def keep_previous_if_missing(entry: dict, prev: dict | None, today: date) -> bool:
+    """Yahoo laat soms een dag een datum vallen die er gisteren nog wel was.
+    Dan houden we de vorige toekomstige datum vast in plaats van 'geen datum'."""
+    if entry["manual"] or entry["next_date"] or not prev or not prev.get("next_date"):
+        return False
+    if date.fromisoformat(prev["next_date"]) < today:
+        return False
+    for k in KEEP_FIELDS:
+        if k in prev:
+            entry[k] = prev[k]
+    return True
+
+
+def apply_diff(entries: list[dict], prev_dates: dict, run_date: str,
+               prev_sources: dict | None = None) -> list[dict]:
+    prev_sources = prev_sources or {}
     changes = []
     for e in entries:
         prev = prev_dates.get(e["name"])
         new = e["next_date"]
         if prev and new and prev != new:
-            e["changed_since_yesterday"] = True
-            e["previous_date"] = prev
+            # Wisselt alleen de bron (Yahoo -> vaste datum of terug), dan heeft het
+            # bedrijf niets verschoven: wel loggen, geen 'gewijzigd'-label.
+            if prev_sources.get(e["name"], "yahoo") == e["date_source"]:
+                e["changed_since_yesterday"] = True
+                e["previous_date"] = prev
             changes.append({"run_date": run_date, "name": e["name"],
                             "from": prev, "to": new})
         elif e["name"] not in prev_dates and new:
@@ -301,11 +389,16 @@ def main() -> int:
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     prev_dates = load_previous_dates()
+    prev_entries = load_previous_entries()
+    prev_sources = {n: e.get("date_source", "yahoo") for n, e in prev_entries.items()}
 
     entries = []
     print(f"Ophalen van {len(companies)} bedrijven via yfinance...")
     for c in companies:
         entry = build_entry(c, today, now_iso)
+        if keep_previous_if_missing(entry, prev_entries.get(entry["name"]), today):
+            print(f"  ~ {entry['name']}: bron gaf geen datum, vorige datum vastgehouden")
+        mark_check(entry, c, today)
         entries.append(entry)
         if not entry["manual"]:
             time.sleep(SLEEP_BETWEEN)
@@ -321,7 +414,7 @@ def main() -> int:
         return (0, e["next_date"], e["name"])
     entries.sort(key=sort_key)
 
-    changes = apply_diff(entries, prev_dates, today.isoformat())
+    changes = apply_diff(entries, prev_dates, today.isoformat(), prev_sources)
     if changes:
         append_changelog(changes)
         print(f"\n{len(changes)} wijziging(en) gelogd.")

@@ -43,5 +43,8 @@ jobs:
             echo "Geen wijzigingen in de agenda."
           else
             git commit -m "chore: cijferagenda bijgewerkt ($(date -u +%Y-%m-%d))"
+            # Twee runs vlak na elkaar (wekker + GitHub-schema) kunnen botsen: eerst
+            # bijwerken; bij een conflict in de data wint deze (nieuwste) run.
+            git pull --rebase -X theirs origin main
             git push
           fi

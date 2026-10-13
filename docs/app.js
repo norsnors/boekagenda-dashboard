@@ -122,7 +122,15 @@ function sourceOf(c) {
 function sourceLink(c) {
   const url = sourceOf(c);
   if (!url) return "";
-  return ` · <a class="src" href="${escapeHtml(url)}" target="_blank" rel="noopener" title="Verifieer de datum op Yahoo Finance">bron ↗</a>`;
+  const title = c.date_source === "override"
+    ? "Datum met de hand vastgezet — verifieer op de beleggerssite"
+    : "Verifieer de datum op Yahoo Finance";
+  return ` · <a class="src" href="${escapeHtml(url)}" target="_blank" rel="noopener" title="${title}">bron ↗</a>`;
+}
+
+/* Wat er wordt gepubliceerd, als dat met de hand is vastgelegd (bv. "Q3 trading update"). */
+function eventTag(c) {
+  return c.event ? `<div class="event">${escapeHtml(c.event)}</div>` : "";
 }
 
 function groupFor(c, today, weekEnd) {
@@ -176,6 +184,11 @@ function timeCell(c) {
     if (c.time_source === "convention") {
       return `<span class="time approx" title="Gebruikelijke publicatietijd voor deze beurs (±07:00 voorbeurs) — niet per bedrijf bevestigd. Wijk je hiervan af? Zet een time_override in companies.json.">±${hh}:${mm}</span>`;
     }
+    // Yahoo geeft voor de VS alleen 'voor of na de beurs'; het exacte tijdstip is een
+    // standaardwaarde. Nabeurs zetten we op het slot (16:00 New Yorkse tijd).
+    if (c.time_source === "yahoo") {
+      return `<span class="time approx" title="Bij benadering: de bron meldt alleen of de cijfers voor of na de beurs komen. Nabeurs = rond het slot van Wall Street (16:00 New Yorkse tijd).">±${hh}:${mm}</span>`;
+    }
     return `<span class="time">${hh}:${mm}</span>`;
   }
   return `<span class="time unknown">tijd onbekend</span>`;
@@ -194,6 +207,9 @@ function labelsCell(c) {
   if (c.changed_since_yesterday && c.previous_date) {
     const prev = fmtDate.format(parseDate(c.previous_date));
     out.push(`<span class="badge badge-changed" title="Was: ${prev}">gewijzigd</span>`);
+  }
+  if (c.check) {
+    out.push(`<span class="badge badge-check" title="De bron kent alleen volledige kwartaal- en jaarcijfers. Dit bedrijf brengt misschien eerder een tussentijdse update uit: check de agenda op de beleggerssite.">controleer</span>`);
   }
   return out.join("");
 }
@@ -224,7 +240,7 @@ function rowHtml(c) {
   }
   const d = parseDate(c.next_date);
   return `<div class="${cls.join(" ")}">
-    <div><div class="name">${escapeHtml(c.name)}</div><div class="ticker">${identity}</div></div>
+    <div><div class="name">${escapeHtml(c.name)}</div>${eventTag(c)}<div class="ticker">${identity}</div></div>
     <div class="cell-date"><span class="date"><span class="weekday">${fmtDate.format(d)}</span></span></div>
     <div>${timeCell(c)}</div>
     <div class="region">${countryCell(c)}</div>

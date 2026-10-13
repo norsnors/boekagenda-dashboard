@@ -48,6 +48,22 @@ schakelt het formulier automatisch over van "GitHub-regel kopiëren" naar één 
 > Test snel of de Worker leeft: open de URL in de browser. Je hoort `Gebruik POST.` te zien
 > (een GET wordt geweigerd) — dat betekent dat de Worker draait.
 
+## Stap 5 — Ochtendwekker (Cron Trigger)
+
+GitHub start de geplande ververs-ronde in de praktijk uren te laat (gemeten in oktober 2026:
+rond 13:00-15:00 in plaats van 06:00). De Worker start de ronde daarom zelf.
+
+1. Plak de nieuwste [`add-company.js`](add-company.js) in de Worker (**Edit code** → **Deploy**).
+   Die bevat een `scheduled`-functie die de fetch-workflow start.
+2. Worker → **Settings** → **Trigger Events** → **Add** → **Cron Triggers** →
+   cron-expressie `0 4 * * 1-5` → **Add**. Cloudflare rekent in UTC: dat is 06:00 in de
+   zomer en 05:00 in de winter, ma-vr.
+3. Het `GITHUB_TOKEN` heeft **Actions: Read and write** nodig (stap 1). Ontbreekt dat, maak
+   dan een nieuw token en vervang het secret.
+
+Controle: de volgende ochtend staat er in de Actions-tab een run met event `workflow_dispatch`
+rond 04:00 UTC, en het dashboard toont "Laatst bijgewerkt" van die ochtend.
+
 ---
 
 ## Hoe het werkt
