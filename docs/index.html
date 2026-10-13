@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cijferagenda — BNR redactie</title>
   <meta name="description" content="Wanneer publiceren beursgenoteerde bedrijven hun cijfers? Automatisch bijgewerkte agenda voor de BNR-redactie." />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <header class="topbar">
@@ -25,6 +25,7 @@
   </header>
 
   <main>
+    <p class="stale" id="stale" role="alert" hidden></p>
     <div class="controls">
       <input type="search" id="search" placeholder="Zoek op bedrijfsnaam…" autocomplete="off" aria-label="Zoek op bedrijfsnaam" />
       <div class="regions" id="regions" role="group" aria-label="Filter op regio">
@@ -114,7 +115,7 @@
     </footer>
   </main>
 
-  <script src="xlsx-export.js?v=10"></script>
-  <script src="app.js?v=10"></script>
+  <script src="xlsx-export.js?v=11"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>

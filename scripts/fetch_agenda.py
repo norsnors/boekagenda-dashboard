@@ -45,6 +45,7 @@ CHANGELOG_FILE = DATA_DIR / "changelog.json"
 RETRIES = 2
 SLEEP_BETWEEN = 0.4  # beleefde pauze tegen Yahoo's soft rate-limit
 CHECK_AFTER_DAYS = 100  # verder weg zonder vaste datum => 'controleer'-label
+MAX_EMPTY_SHARE = 0.5   # meer lege antwoorden dan dit => bron stuk, niets overschrijven
 
 
 def load_companies() -> list[dict]:
@@ -284,6 +285,8 @@ def build_entry(company: dict, today: date, now_iso: str) -> dict:
             else:
                 time.sleep(1.5)
 
+    base["_yahoo_ok"] = bool(result)  # voor de veiligheidsrem in main(); niet weggeschreven
+
     # Vaste datum uit companies.json (bv. een trading update die Yahoo niet kent).
     result = apply_date_override(result, company, today)
 
@@ -393,9 +396,13 @@ def main() -> int:
     prev_sources = {n: e.get("date_source", "yahoo") for n, e in prev_entries.items()}
 
     entries = []
+    empty = 0  # bedrijven met ticker waarvoor Yahoo niets bruikbaars gaf
     print(f"Ophalen van {len(companies)} bedrijven via yfinance...")
     for c in companies:
         entry = build_entry(c, today, now_iso)
+        if not entry["manual"] and not entry.pop("_yahoo_ok", False):
+            empty += 1
+        entry.pop("_yahoo_ok", None)
         if keep_previous_if_missing(entry, prev_entries.get(entry["name"]), today):
             print(f"  ~ {entry['name']}: bron gaf geen datum, vorige datum vastgehouden")
         mark_check(entry, c, today)
@@ -404,6 +411,15 @@ def main() -> int:
             time.sleep(SLEEP_BETWEEN)
         label = entry["next_date"] or ("handmatig / n.v.t." if entry["manual"] else "geen datum")
         print(f"  {entry['name']:34} {label}  [{entry['session']}]")
+
+    # Veiligheidsrem: geeft Yahoo bij meer dan de helft niets, dan is de bron stuk
+    # (storing, blokkade, gewijzigde API). Niet overschrijven, wel hard falen zodat
+    # GitHub een foutmail stuurt en de Worker-wekker het later opnieuw probeert.
+    auto = sum(1 for e in entries if not e["manual"])
+    if auto and empty / auto > MAX_EMPTY_SHARE:
+        print(f"\n! Yahoo gaf bij {empty}/{auto} bedrijven niets. Agenda NIET bijgewerkt.",
+              file=sys.stderr)
+        return 1
 
     # Sorteer: bedrijven met datum eerst (op datum), daarna zonder datum, dan handmatig.
     def sort_key(e):

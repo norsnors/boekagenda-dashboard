@@ -111,16 +111,31 @@ export default {
     }
   },
 
-  /* Ochtendwekker. GitHub start geplande runs in de praktijk uren te laat (rond
-     13:00-15:00 in plaats van 06:00). Een Cron Trigger op deze Worker (04:00 UTC,
-     ma-vr) start de fetch-workflow daarom zelf. Vereist Actions: Read and write
-     op het GITHUB_TOKEN. Zie worker/README.md. */
+  /* Ochtendwekker. GitHub start geplande runs in de praktijk uren te laat (gemeten
+     in oktober 2026: 7-8 uur). Cron Triggers op deze Worker (04:00, 05:00 en 06:00
+     UTC, ma-vr) starten de fetch-workflow daarom zelf, maar alleen als de agenda
+     vanochtend nog niet ververst is: de eerste trigger doet het werk, de volgende
+     zijn het vangnet als een run mislukt. Vereist Contents: Read en Actions: Read
+     and write op het GITHUB_TOKEN. Zie worker/README.md. */
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(ghSend(
-      `${GH}/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`,
-      env, "POST", { ref: BRANCH }));
+    ctx.waitUntil(morningRefresh(env));
   },
 };
+
+/* Start de fetch-workflow als agenda.json sinds 04:00 UTC vandaag niet is ververst. */
+async function morningRefresh(env) {
+  const file = await ghJson(`${GH}/repos/${OWNER}/${REPO}/contents/docs/data/agenda.json?ref=${BRANCH}`, env);
+  const generated = new Date(JSON.parse(b64ToStr(file.content)).generated_at);
+  const cutoff = new Date();
+  cutoff.setUTCHours(4, 0, 0, 0);
+  if (generated >= cutoff) {
+    console.log(`Agenda al ververst (${generated.toISOString()}), niets te doen.`);
+    return;
+  }
+  await ghSend(`${GH}/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`,
+    env, "POST", { ref: BRANCH });
+  console.log(`Ververs-ronde gestart (agenda was van ${generated.toISOString()}).`);
+}
 
 /* ---------- helpers ---------- */
 

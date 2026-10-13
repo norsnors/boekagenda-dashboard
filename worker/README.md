@@ -50,19 +50,32 @@ schakelt het formulier automatisch over van "GitHub-regel kopiëren" naar één 
 
 ## Stap 5 — Ochtendwekker (Cron Trigger)
 
-GitHub start de geplande ververs-ronde in de praktijk uren te laat (gemeten in oktober 2026:
-rond 13:00-15:00 in plaats van 06:00). De Worker start de ronde daarom zelf.
+GitHub start de geplande ververs-ronde in de praktijk uren te laat. Gemeten: eind augustus
+2026 nog 40 minuten, half oktober 7 à 8 uur, en oplopend. De Worker start de ronde daarom zelf.
 
 1. Plak de nieuwste [`add-company.js`](add-company.js) in de Worker (**Edit code** → **Deploy**).
-   Die bevat een `scheduled`-functie die de fetch-workflow start.
-2. Worker → **Settings** → **Trigger Events** → **Add** → **Cron Triggers** →
-   cron-expressie `0 4 * * 1-5` → **Add**. Cloudflare rekent in UTC: dat is 06:00 in de
-   zomer en 05:00 in de winter, ma-vr.
-3. Het `GITHUB_TOKEN` heeft **Actions: Read and write** nodig (stap 1). Ontbreekt dat, maak
-   dan een nieuw token en vervang het secret.
+   Die bevat een `scheduled`-functie: die kijkt of `agenda.json` vandaag na 04:00 UTC al is
+   ververst, en start de fetch-workflow alleen als dat niet zo is.
+2. Worker → **Settings** → **Trigger Events** → **Add** → **Cron Triggers**, drie keer:
+   `0 4 * * 1-5`, `0 5 * * 1-5` en `0 6 * * 1-5`. Cloudflare rekent in UTC. De eerste doet het
+   werk (06:00 zomertijd, 05:00 wintertijd); de andere twee zijn het vangnet als een ronde
+   mislukt en kosten niets als de agenda al vers is.
+3. Het `GITHUB_TOKEN` heeft **Contents: Read and write** en **Actions: Read and write** nodig
+   (stap 1). Ontbreekt Actions, maak dan een nieuw token en vervang het secret.
 
 Controle: de volgende ochtend staat er in de Actions-tab een run met event `workflow_dispatch`
-rond 04:00 UTC, en het dashboard toont "Laatst bijgewerkt" van die ochtend.
+rond 04:00 UTC, en het dashboard toont "Laatst bijgewerkt" van die ochtend. In de Worker zie je
+onder **Logs** per trigger "Ververs-ronde gestart" of "Agenda al ververst".
+
+## Wat er gebeurt als het toch misgaat
+
+- **Yahoo stuk** (meer dan de helft van de bedrijven geeft niets): de fetcher overschrijft de
+  agenda niet en de ronde faalt. GitHub mailt dan het account norsnors; de volgende trigger
+  probeert het opnieuw.
+- **Agenda niet vers:** staat de agenda na 07:30 op een werkdag nog niet op die ochtend, dan
+  toont het dashboard bovenaan een rode melding met het tijdstip van de laatste verversing.
+- De geplande runs van GitHub zelf blijven als laatste vangnet staan; ze komen 's middags
+  binnen en verversen dan nog een keer.
 
 ---
 

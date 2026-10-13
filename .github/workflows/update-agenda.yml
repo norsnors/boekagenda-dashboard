@@ -2,8 +2,9 @@ name: Cijferagenda bijwerken
 
 on:
   schedule:
-    # GitHub cron draait in UTC. 04:00 en 05:00 UTC dekken samen 06:00 Amsterdamse
-    # tijd in zowel zomer- (CEST) als wintertijd (CET). Runs zijn idempotent.
+    # Vangnet. GitHub start deze in de praktijk uren te laat (okt 2026: 7-8 uur); de
+    # ochtendronde komt van de Cron Triggers op de Cloudflare Worker (worker/README.md).
+    # GitHub cron draait in UTC. Runs zijn idempotent.
     - cron: "0 4 * * 1-5"
     - cron: "0 5 * * 1-5"
   workflow_dispatch: {}   # handmatig starten via de Actions-tab

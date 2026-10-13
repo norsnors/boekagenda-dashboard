@@ -427,6 +427,32 @@ function setupAddPanel() {
   }
 }
 
+/* Uiterlijk moment waarop de agenda ververst had moeten zijn: de laatste werkdag
+   (ma-vr) om 07:30 die al voorbij is. De ochtendronde start rond 06:00. */
+function lastExpectedRefresh(now) {
+  const d = new Date(now);
+  d.setHours(7, 30, 0, 0);
+  if (d > now) d.setDate(d.getDate() - 1);
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() - 1);
+  return d;
+}
+
+function showStaleWarning(gen, now) {
+  const el = document.getElementById("stale");
+  if (!el) return;
+  const expected = lastExpectedRefresh(now);
+  // De ronde draait om 06:00; data van vóór 05:00 die dag telt als niet ververst.
+  const minimum = new Date(expected);
+  minimum.setHours(5, 0, 0, 0);
+  const stale = !gen || gen < minimum;
+  el.hidden = !stale;
+  if (stale) {
+    el.textContent = gen
+      ? `Let op: de agenda is sinds ${fmtUpdated.format(gen)} niet ververst. Datums kunnen achterlopen; check bij twijfel de bron.`
+      : "Let op: onbekend wanneer de agenda voor het laatst is ververst.";
+  }
+}
+
 async function init() {
   const search = document.getElementById("search");
   search.addEventListener("input", (e) => { state.query = e.target.value; render(); });
@@ -460,6 +486,7 @@ async function init() {
     const gen = data.generated_at ? new Date(data.generated_at) : null;
     document.getElementById("updated-value").textContent =
       gen ? fmtUpdated.format(gen) : "onbekend";
+    showStaleWarning(gen, new Date());
     render();
   } catch (err) {
     document.getElementById("content").innerHTML =

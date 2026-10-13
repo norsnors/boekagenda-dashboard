@@ -100,6 +100,10 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
 .badge-expected { background: var(--amber-bg); color: var(--amber); }
 .badge-changed { background: #fde4e4; color: #b42318; }
 .badge-manual { background: #eceef2; color: #5b616e; }
+.stale {
+  margin: 0 0 14px; padding: 10px 14px; border-radius: var(--radius);
+  background: #fde4e4; color: #b42318; font-weight: 600; border: 1px solid #f5b5b0;
+}
 .badge-check { background: #fff1d6; color: #9a5b00; border: 1px dashed currentColor; cursor: help; }
 .row .event { color: var(--accent-ink); font-size: 12.5px; font-weight: 600; }
 .pill-nabeurs { background: #eae6fb; color: #5b3fb2; }
@@ -203,6 +207,7 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px; }
   .flag { box-shadow: 0 0 0 1px rgba(255,255,255,.18); }
   .ticker .src, .row .event { color: #ff9a52; }
   .badge-check { background: #33290a; color: #f5c46b; }
+  .stale { background: #3a1414; color: #ff9a92; border-color: #6b2420; }
   .btn-github { background: #23262e; }
   .btn-github:hover { background: #2f333d; }
   .add-status.err { color: #ff9a92; }
