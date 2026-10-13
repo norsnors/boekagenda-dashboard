@@ -7,6 +7,11 @@ on:
     - cron: "0 4 * * 1-5"
     - cron: "0 5 * * 1-5"
   workflow_dispatch: {}   # handmatig starten via de Actions-tab
+  push:                   # meteen verversen na een wijziging in de lijst of de fetcher
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/update-agenda.yml"
 
 permissions:
   contents: write
