@@ -53,6 +53,7 @@
     { "name": "Aegon", "ticker": "AGN.AS", "exchange": "Euronext Amsterdam", "region": "NL", "no_interim": true },
     { "name": "Nvidia", "ticker": "NVDA", "exchange": "Nasdaq", "region": "US" },
     { "name": "InPost", "ticker": "INPST.AS", "exchange": "Euronext Amsterdam", "region": "NL", "date_override": "2026-11-17", "event": "Q3 trading update", "date_source_url": "https://inpost.eu/sites/default/files/2025-12/InPost%20-%20Press%20release%20-%20Calendar%202026.pdf" },
-    { "name": "Exor", "ticker": "EXO.AS", "exchange": "Euronext Amsterdam", "region": "NL", "no_interim": true }
+    { "name": "Exor", "ticker": "EXO.AS", "exchange": "Euronext Amsterdam", "region": "NL", "no_interim": true },
+    { "name": "Micron", "ticker": "MU", "exchange": "Nasdaq Copenhagen", "region": "US" }
   ]
 }
