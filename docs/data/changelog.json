@@ -562,5 +562,11 @@
     "name": "Magnum Ice Cream Company",
     "from": "2027-02-11",
     "to": "2027-01-28"
+  },
+  {
+    "run_date": "2026-11-04",
+    "name": "Wereldhave",
+    "from": "2026-11-03",
+    "to": "2027-02-12"
   }
 ]
