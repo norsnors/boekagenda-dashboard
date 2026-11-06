@@ -580,5 +580,35 @@
     "name": "Wolters Kluwer",
     "from": "2026-11-04",
     "to": "2027-02-24"
+  },
+  {
+    "run_date": "2026-11-06",
+    "name": "Nintendo",
+    "from": "2026-11-05",
+    "to": "2027-02-02"
+  },
+  {
+    "run_date": "2026-11-06",
+    "name": "ArcelorMittal",
+    "from": "2026-11-05",
+    "to": "2027-02-04"
+  },
+  {
+    "run_date": "2026-11-06",
+    "name": "Air France-KLM",
+    "from": "2026-11-05",
+    "to": "2027-02-18"
+  },
+  {
+    "run_date": "2026-11-06",
+    "name": "BAM (Koninklijke BAM Groep)",
+    "from": "2026-11-05",
+    "to": "2027-02-18"
+  },
+  {
+    "run_date": "2026-11-06",
+    "name": "IMCD",
+    "from": "2026-11-05",
+    "to": "2027-02-19"
   }
 ]
