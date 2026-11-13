@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T12:58:51+01:00",
+  "generated_at": "2026-11-13T13:55:01+01:00",
   "companies": [
     {
       "name": "InPost",
@@ -21,7 +21,7 @@
       "date_source": "override",
       "event": "Q3 trading update",
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Nvidia",
@@ -43,7 +43,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Ubisoft",
@@ -65,7 +65,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Prosus",
@@ -87,7 +87,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Micron",
@@ -109,7 +109,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ASML",
@@ -131,7 +131,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Meta",
@@ -153,7 +153,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Microsoft",
@@ -175,7 +175,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "SK Hynix",
@@ -197,7 +197,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Samsung",
@@ -219,7 +219,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Tesla",
@@ -241,7 +241,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Apple",
@@ -263,7 +263,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ING",
@@ -285,7 +285,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Intel",
@@ -307,7 +307,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "KPN",
@@ -329,7 +329,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Magnum Ice Cream Company",
@@ -351,7 +351,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "WDP",
@@ -373,7 +373,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Nintendo",
@@ -395,7 +395,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "AkzoNobel",
@@ -417,7 +417,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Alphabet",
@@ -439,7 +439,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Novo Nordisk",
@@ -461,7 +461,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Amazon",
@@ -483,7 +483,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ArcelorMittal",
@@ -505,7 +505,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Shell",
@@ -527,7 +527,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Philips",
@@ -549,7 +549,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ABN Amro",
@@ -571,7 +571,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Heineken",
@@ -593,7 +593,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Adyen",
@@ -615,7 +615,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "NN Group",
@@ -637,7 +637,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Relx",
@@ -659,7 +659,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Unilever",
@@ -681,7 +681,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Wereldhave",
@@ -703,7 +703,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ASR Nederland",
@@ -725,7 +725,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Ahold Delhaize",
@@ -747,7 +747,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Randstad",
@@ -769,7 +769,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Aegon",
@@ -791,7 +791,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "BAM (Koninklijke BAM Groep)",
@@ -813,7 +813,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "DSM Firmenich",
@@ -835,7 +835,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "SBM Offshore",
@@ -857,7 +857,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Heijmans",
@@ -879,7 +879,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "IMCD",
@@ -901,7 +901,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ASM International",
@@ -923,7 +923,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Aalberts",
@@ -945,7 +945,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Wolters Kluwer",
@@ -967,7 +967,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Air France-KLM",
@@ -989,7 +989,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Besi (BE Semiconductor)",
@@ -1011,7 +1011,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "UMG (Universal Music Group)",
@@ -1033,7 +1033,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "CVC Capital",
@@ -1055,7 +1055,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Pharming",
@@ -1077,7 +1077,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Foxconn (Hon Hai Precision)",
@@ -1094,12 +1094,12 @@
       "status": "verwacht",
       "manual": false,
       "note": null,
-      "changed_since_yesterday": true,
-      "previous_date": "2026-11-12",
+      "changed_since_yesterday": false,
+      "previous_date": null,
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Fastned",
@@ -1121,7 +1121,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": true,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Exor",
@@ -1143,7 +1143,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "Volkswagen",
@@ -1165,7 +1165,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     },
     {
       "name": "ASN Bank",
@@ -1187,7 +1187,7 @@
       "date_source": "yahoo",
       "event": null,
       "check": false,
-      "fetched_at": "2026-11-13T12:58:51+01:00"
+      "fetched_at": "2026-11-13T13:55:01+01:00"
     }
   ]
 }
