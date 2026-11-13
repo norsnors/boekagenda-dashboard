@@ -616,5 +616,17 @@
     "name": "Air France-KLM",
     "from": "2027-02-18",
     "to": "2027-02-25"
+  },
+  {
+    "run_date": "2026-11-13",
+    "name": "SBM Offshore",
+    "from": "2026-11-12",
+    "to": "2027-02-18"
+  },
+  {
+    "run_date": "2026-11-13",
+    "name": "Foxconn (Hon Hai Precision)",
+    "from": "2026-11-12",
+    "to": "2027-03-16"
   }
 ]
